@@ -22,6 +22,8 @@ const gravity = 2000.0
 @onready var active_weapon = $W1_Shotgun
 @onready var side_weapon = $W2_Standard
 @onready var player_sprite = $PlayerSprite
+@onready var dash_cd = $HUD/DashCD
+@onready var cast_cd = $HUD/CastCD
 @export var shotgun_cd = 0.6
 @export var rifle_cd = 0.08
 @export var railgun_cd = 10.0
@@ -42,7 +44,8 @@ var face_right = 1
 func dash():
 	can_dash = false
 	is_dashing = true
-		
+	dash_cd.value = 0.0
+	
 	# no vertical movements while dashing
 	velocity.y = 0
 	velocity.x = dash_speed * face_right
@@ -63,6 +66,8 @@ func _ready():
 	player_sprite.visible = false
 	
 	# Make sure the health bar matches our variables right when the game boots up
+	cast_cd.value = 100.0
+	dash_cd.value = 100.0
 	hp_bar.max_value = health
 	hp_bar.value = current_hp
 	hp_display.text = "%.1f" % current_hp
@@ -90,11 +95,13 @@ func die():
 
 func _physics_process(delta: float) -> void:
 	# ----------------------- UI LOADING -----------------------
+	cast_cd.value += 100 * delta / shotgun_cd
+	
 	if current_sp < shield:	
 		current_sp += 0.3 * delta
 		sp_bar.value = current_sp
 		sp_display.text = "%.1f" % current_sp
-
+	
 	if direction == -1:
 		face_right = -1
 		player_sprite.flip_h = true
@@ -124,6 +131,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite.play("idle")
 
+	dash_cd.value += 180 * delta
 	# 1. GRAVITY
 	if not is_on_floor():
 		if is_on_wall() and velocity.y > 0:
@@ -192,6 +200,7 @@ func _physics_process(delta: float) -> void:
 	elif can_shoot and active_weapon == $W1_Shotgun:
 		if Input.is_action_just_pressed("shoot"):
 			active_weapon.shoot()
+			cast_cd.value = 0.0
 			can_shoot = false
 			await get_tree().create_timer(shotgun_cd).timeout
 			can_shoot = true

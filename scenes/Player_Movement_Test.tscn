@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c3ss7omuw73s3" path="res://scenes/Weapons/W2_Standard.tscn" id="4_bksix"]
 [ext_resource type="Texture2D" uid="uid://dcfkvjvj243o3" path="res://Assets/Animations/Untitled.png" id="5_boojc"]
 [ext_resource type="Texture2D" uid="uid://4eo4ai0xfqao" path="res://Assets/Animations/J2.png" id="6_dor35"]
+[ext_resource type="Texture2D" uid="uid://btnr0ctb4wc4a" path="res://Speed.png" id="6_thq6h"]
+[ext_resource type="Texture2D" uid="uid://d0trtklqp0g83" path="res://Assets/Staff_Icon.png" id="7_7bliq"]
 [ext_resource type="Texture2D" uid="uid://cpvb0wxiu2q3v" path="res://Assets/Animations/J5.png" id="10_5mh8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bksix"]
@@ -33,6 +35,22 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i08gw"]
+bg_color = Color(0.88354266, 0.8454577, 0.99588925, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgm48"]
+bg_color = Color(0.6787332, 0.8938107, 0.99999994, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9105962, 0.7145055, 1, 1)
+border_blend = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ipxb"]
 size = Vector2(79, 178)
@@ -108,6 +126,10 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=720078412]
 script = ExtResource("2_0ipxb")
 
+[node name="W1_Shotgun" parent="." unique_id=1768938732 instance=ExtResource("3_6jswd")]
+position = Vector2(60, 0)
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1284013736]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_0qsbf")
@@ -164,6 +186,34 @@ text = "35"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DashCD" type="ProgressBar" parent="HUD" unique_id=1113847568]
+offset_left = 861.0
+offset_top = 561.0
+offset_right = 927.0
+offset_bottom = 627.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_i08gw")
+fill_mode = 3
+show_percentage = false
+
+[node name="Speed" type="Sprite2D" parent="HUD/DashCD" unique_id=87936488]
+position = Vector2(33, 34)
+scale = Vector2(0.27947602, 0.27947602)
+texture = ExtResource("6_thq6h")
+
+[node name="CastCD" type="ProgressBar" parent="HUD" unique_id=1589879204]
+offset_left = 961.0
+offset_top = 474.0
+offset_right = 1101.0
+offset_bottom = 614.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_fgm48")
+fill_mode = 3
+show_percentage = false
+
+[node name="StaffIcon" type="Sprite2D" parent="HUD/CastCD" unique_id=1084846539]
+position = Vector2(67.99997, 67.99997)
+scale = Vector2(0.28930825, 0.28930825)
+texture = ExtResource("7_7bliq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551339865]
 position = Vector2(14.5, 38)
 shape = SubResource("RectangleShape2D_0ipxb")
@@ -174,10 +224,6 @@ shape = SubResource("RectangleShape2D_0ipxb")
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_0kcfe")
 animation = &"sprint"
-
-[node name="W1_Shotgun" parent="." unique_id=1768938732 instance=ExtResource("3_6jswd")]
-position = Vector2(60, 0)
-scale = Vector2(0.99999994, 0.99999994)
 
 [node name="W2_Standard" parent="." unique_id=385477843 instance=ExtResource("4_bksix")]
 position = Vector2(69, 6)
