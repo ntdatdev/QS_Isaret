@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn38rgx5sr0xp"
-path="res://.godot/imported/Staff_Projectile.png-398abf408ede6a68da27a494d56fba16.ctex"
+path="res://.godot/imported/Staff_Projectile.png-ffbaa77fcf7c91f3df5eb5c1625c775c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Staff_Projectile.png"
-dest_files=["res://.godot/imported/Staff_Projectile.png-398abf408ede6a68da27a494d56fba16.ctex"]
+source_file="res://Assets/Staff_Projectile.png"
+dest_files=["res://.godot/imported/Staff_Projectile.png-ffbaa77fcf7c91f3df5eb5c1625c775c.ctex"]
 
 [params]
 
