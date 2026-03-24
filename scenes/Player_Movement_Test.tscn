@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c3ss7omuw73s3" path="res://scenes/Weapons/W2_Standard.tscn" id="4_bksix"]
 [ext_resource type="Texture2D" uid="uid://dcfkvjvj243o3" path="res://Assets/Animations/Untitled.png" id="5_boojc"]
 [ext_resource type="Texture2D" uid="uid://4eo4ai0xfqao" path="res://Assets/Animations/J2.png" id="6_dor35"]
+[ext_resource type="Texture2D" uid="uid://bqkg6i54sy5mo" path="res://Assets/Press_E_to_Dash.png" id="6_f1p60"]
 [ext_resource type="Texture2D" uid="uid://btnr0ctb4wc4a" path="res://Speed.png" id="6_thq6h"]
 [ext_resource type="Texture2D" uid="uid://d0trtklqp0g83" path="res://Assets/Staff_Icon.png" id="7_7bliq"]
+[ext_resource type="Texture2D" uid="uid://s8pk6b41wpcw" path="res://Assets/Shoot_Instruction.png" id="7_fgm48"]
 [ext_resource type="Texture2D" uid="uid://cpvb0wxiu2q3v" path="res://Assets/Animations/J5.png" id="10_5mh8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bksix"]
@@ -119,7 +121,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=720078412]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=720078412 groups=["Player"]]
 script = ExtResource("2_0ipxb")
 
 [node name="W1_Shotgun" parent="." unique_id=1768938732 instance=ExtResource("3_6jswd")]
@@ -191,6 +193,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_i08gw")
 fill_mode = 3
 show_percentage = false
 
+[node name="PressEToDash" type="Sprite2D" parent="HUD/DashCD" unique_id=446455054]
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("6_f1p60")
+
 [node name="Speed" type="Sprite2D" parent="HUD/DashCD" unique_id=87936488]
 position = Vector2(33, 34)
 scale = Vector2(0.27947602, 0.27947602)
@@ -204,6 +210,13 @@ offset_bottom = 614.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_fgm48")
 fill_mode = 3
 show_percentage = false
+
+[node name="ShootInstruction" type="Sprite2D" parent="HUD/CastCD" unique_id=148146616]
+self_modulate = Color(0.7480997, 0.7480997, 0.7480996, 1)
+z_index = 20
+position = Vector2(2, -2)
+scale = Vector2(0.08984375, 0.08984375)
+texture = ExtResource("7_fgm48")
 
 [node name="StaffIcon" type="Sprite2D" parent="HUD/CastCD" unique_id=1084846539]
 position = Vector2(67.99997, 67.99997)

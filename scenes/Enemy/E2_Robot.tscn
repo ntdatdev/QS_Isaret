@@ -1,9 +1,71 @@
 [gd_scene format=3 uid="uid://1l7qbjja6qsk"]
 
+[ext_resource type="Script" uid="uid://d1paqt6ruw8ym" path="res://scenes/Enemy/e_2_robot.gd" id="1_rkhaj"]
+[ext_resource type="Texture2D" uid="uid://dp5fer823cmqm" path="res://Assets/Enemies/Tech_Robot.png" id="2_t21m6"]
+[ext_resource type="Texture2D" uid="uid://be3xmw6tc3px5" path="res://Assets/Animations/Robot_Attack.png" id="3_t21m6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkhaj"]
+radius = 75.0
+height = 246.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkhaj"]
+bg_color = Color(0.3969905, 0.6874706, 0.25187606, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4epdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t21m6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t21m6")
+}],
+"loop": true,
+"name": &"slash",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t21m6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4epdt"]
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1072070077]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=137312290]
-
-[node name="Eyes (RayCast2D)" type="RayCast2D" parent="." unique_id=230252696]
+script = ExtResource("1_rkhaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454235678]
+shape = SubResource("CapsuleShape2D_rkhaj")
+
+[node name="TechRobot" type="Sprite2D" parent="." unique_id=1116273655]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_t21m6")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1893801632]
+offset_left = -141.0
+offset_top = 169.0
+offset_right = 179.0
+offset_bottom = 196.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rkhaj")
+show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1616249253]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_4epdt")
+animation = &"idle"
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1298069271]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1103187559]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_t21m6")
+debug_color = Color(0, 0.6, 0.69803923, 0.047058824)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=867293847]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1795002471]
+scale = Vector2(30, 30)
+shape = SubResource("CircleShape2D_4epdt")

@@ -147,11 +147,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = jump_strength
-		elif is_on_wall():
+		elif is_on_wall() and double_jump > 0:
 			# WALL JUMP
 			velocity.y = jump_strength
 			# Push them away from the wall
 			velocity.x = get_wall_normal().x * wall_jump_push
+			double_jump -= 1
 		elif double_jump > 0:
 			velocity.y = jump_strength
 			double_jump -= 1

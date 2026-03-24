@@ -34,7 +34,9 @@ offset_bottom = 222.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.6377969, 0.3425194, 0, 1)
 theme_override_font_sizes/font_size = 64
-text = "CAT GAME"
+text = "Işaret
+"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="StartButton" type="Button" parent="." unique_id=1689424568]
