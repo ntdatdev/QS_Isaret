@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c6lr8augrefpl"]
+
+[ext_resource type="Texture2D" uid="uid://cdujyv45j81ev" path="res://Assets/Enemies/Tech_Mecha.png" id="1_bwrco"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q45b"]
+radius = 3.35
+height = 20.4
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1957542900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064553960]
+scale = Vector2(20, 20)
+shape = SubResource("CapsuleShape2D_4q45b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1042022924]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1734020861]
+
+[node name="TechMecha" type="Sprite2D" parent="." unique_id=1007977115]
+scale = Vector2(0.6522411, 0.65224093)
+texture = ExtResource("1_bwrco")

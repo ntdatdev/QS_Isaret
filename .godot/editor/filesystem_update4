@@ -1,6 +1,2 @@
-res://scenes/Player_Movement_Test.tscn
-res://scenes/Enemy/e_2_robot.gd
-res://scenes/MAIN_SCENE.tscn
-res://scripts/icon.gd
-res://scenes/Enemy/E2_Robot.tscn
-res://scenes/main_menu.tscn
+res://scenes/Enemy/E1_Drone.tscn
+res://scenes/Enemy/E1_Mecha.tscn
