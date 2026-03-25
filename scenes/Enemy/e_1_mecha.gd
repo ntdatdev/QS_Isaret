@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var max_hp = 100.0
 var current_hp = 100.0
 
-@export var move_speed = 120.0
-@export var dash_speed = 420.0
+@export var move_speed = 200.0
+@export var dash_speed = 500.0
 @export var detection_range = 1000.0
 @export var attack_range = 600.0
 @export var windup_time = 1
@@ -96,12 +96,13 @@ func check_dash_damage():
 
 			if body.has_method("take_damage"):
 				body.take_damage(damage)
+			# Stop the dash so enemy does not stick to player
+			
 			# Push enemy slightly away from the player
 			var push_dir = (global_position - body.global_position).normalized()
 			velocity = push_dir * 300.0
-			# Stop the dash so enemy does not stick to player
-			await get_tree().create_timer(0.3).timeout
 			current_state = "RECOVER"
+			await get_tree().create_timer(1).timeout
 			anim.play("idle")
 			velocity = Vector2.ZERO
 			return

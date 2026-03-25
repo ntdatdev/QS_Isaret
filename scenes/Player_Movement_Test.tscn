@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://p8e8qwgigc2v"]
 
-[ext_resource type="Script" uid="uid://dghop8vltia26" path="res://scripts/icon.gd" id="2_0ipxb"]
-[ext_resource type="Texture2D" uid="uid://btu7l7bcc0bhc" path="res://Assets/Animations/Idle.png" id="2_0qsbf"]
-[ext_resource type="Texture2D" uid="uid://cvj8gqtk8edpj" path="res://Assets/49wcXf.png" id="2_tcn2r"]
-[ext_resource type="Texture2D" uid="uid://dav7u0mdw72a5" path="res://Assets/Shield.png" id="3_0qsbf"]
+[ext_resource type="Script" uid="uid://dghop8vltia26" path="res://icon.gd" id="2_0ipxb"]
+[ext_resource type="Texture2D" uid="uid://btu7l7bcc0bhc" path="res://assets/Animations/Idle.png" id="2_0qsbf"]
+[ext_resource type="Texture2D" uid="uid://cvj8gqtk8edpj" path="res://assets/49wcXf.png" id="2_tcn2r"]
+[ext_resource type="Texture2D" uid="uid://dav7u0mdw72a5" path="res://assets/Shield.png" id="3_0qsbf"]
 [ext_resource type="PackedScene" uid="uid://17msdsu1ooyd" path="res://scenes/Weapons/W1_Shotgun.tscn" id="3_6jswd"]
 [ext_resource type="PackedScene" uid="uid://c3ss7omuw73s3" path="res://scenes/Weapons/W2_Standard.tscn" id="4_bksix"]
-[ext_resource type="Texture2D" uid="uid://dcfkvjvj243o3" path="res://Assets/Animations/Untitled.png" id="5_boojc"]
-[ext_resource type="Texture2D" uid="uid://4eo4ai0xfqao" path="res://Assets/Animations/J2.png" id="6_dor35"]
-[ext_resource type="Texture2D" uid="uid://bqkg6i54sy5mo" path="res://Assets/Press_E_to_Dash.png" id="6_f1p60"]
+[ext_resource type="Texture2D" uid="uid://dcfkvjvj243o3" path="res://assets/Animations/Untitled.png" id="5_boojc"]
+[ext_resource type="Texture2D" uid="uid://4eo4ai0xfqao" path="res://assets/Animations/J2.png" id="6_dor35"]
+[ext_resource type="Texture2D" uid="uid://bqkg6i54sy5mo" path="res://assets/Press_E_to_Dash.png" id="6_f1p60"]
 [ext_resource type="Texture2D" uid="uid://btnr0ctb4wc4a" path="res://Speed.png" id="6_thq6h"]
-[ext_resource type="Texture2D" uid="uid://d0trtklqp0g83" path="res://Assets/Staff_Icon.png" id="7_7bliq"]
-[ext_resource type="Texture2D" uid="uid://s8pk6b41wpcw" path="res://Assets/Shoot_Instruction.png" id="7_fgm48"]
-[ext_resource type="Texture2D" uid="uid://cpvb0wxiu2q3v" path="res://Assets/Animations/J5.png" id="10_5mh8h"]
+[ext_resource type="Texture2D" uid="uid://d0trtklqp0g83" path="res://assets/Staff_Icon.png" id="7_7bliq"]
+[ext_resource type="Texture2D" uid="uid://s8pk6b41wpcw" path="res://assets/Shoot_Instruction.png" id="7_fgm48"]
+[ext_resource type="Texture2D" uid="uid://cpvb0wxiu2q3v" path="res://assets/Animations/J5.png" id="10_5mh8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bksix"]
 bg_color = Color(0.9224991, 0, 0.26437932, 1)
@@ -239,5 +239,5 @@ position = Vector2(69, 6)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=535445828]
 offset = Vector2(70, -100)
-zoom = Vector2(0.9, 0.9)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
