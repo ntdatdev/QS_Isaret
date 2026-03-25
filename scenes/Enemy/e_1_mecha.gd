@@ -129,6 +129,7 @@ func check_dash_damage():
 
 			# Stop dash immediately so enemy does not stick to the player
 			current_state = "RECOVER"
+			await get_tree().create_timer(0.5).timeout
 			anim.play("idle")
 			return
 
