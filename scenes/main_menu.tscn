@@ -12,6 +12,14 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="." unique_id=1468365809]
+
+[node name="Faded" type="ColorRect" parent="." unique_id=1988664397]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 655.0
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=876886830]
 layout_mode = 1
 anchors_preset = 15
@@ -54,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.6392157, 0.34117648, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "START"
+text = "NEW GAME"
 metadata/_edit_use_anchors_ = true
 
 [node name="QuitButton" type="Button" parent="." unique_id=1676512732]

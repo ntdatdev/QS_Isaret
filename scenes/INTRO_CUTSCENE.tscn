@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://bfcsiccagsmcy"]
+
+[ext_resource type="Script" uid="uid://c16851b3fil4r" path="res://intro_cutscene.gd" id="1_di5kx"]
+[ext_resource type="Texture2D" uid="uid://ched5xeyj53t4" path="res://Assets/Scene_1.jpg" id="2_qumt3"]
+[ext_resource type="Texture2D" uid="uid://cm84iq420ua8w" path="res://Assets/Scene_2.jpg" id="3_mk4aq"]
+[ext_resource type="Texture2D" uid="uid://c5qq2b3j38y3y" path="res://Assets/Scene_3.jpg" id="4_vdn7m"]
+
+[sub_resource type="Animation" id="Animation_i8ste"]
+resource_name = "IntroSequence"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.5, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_qumt3"), ExtResource("3_mk4aq"), ExtResource("4_vdn7m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Flash_Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5.5, 6.5, 7.5, 12, 13, 14, 18.5, 19.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.5, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Scene 1", "Scene 2", "Scene 3"]
+}
+
+[sub_resource type="Animation" id="Animation_tjfoi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qumt3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Flash_Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Scene 1"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjyll"]
+_data = {
+&"IntroSequence": SubResource("Animation_i8ste"),
+&"RESET": SubResource("Animation_tjfoi")
+}
+
+[node name="Intro" type="Control" unique_id=1506883091]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_di5kx")
+
+[node name="Background" type="ColorRect" parent="." unique_id=749390584]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1101604726]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 574.0
+offset_right = 870.0
+offset_bottom = 628.0
+text = "Scene 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slideshow" type="TextureRect" parent="." unique_id=98153633]
+layout_mode = 0
+offset_left = 202.00003
+offset_top = 21.000002
+offset_right = 2250.0
+offset_bottom = 1448.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_qumt3")
+stretch_mode = 5
+
+[node name="Flash_Fade" type="ColorRect" parent="." unique_id=1850309753]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 1148.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1122165434]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1519325219]
+root_node = NodePath("../Slideshow")
+libraries/ = SubResource("AnimationLibrary_bjyll")
+
+[node name="Label2" type="Label" parent="." unique_id=240460680]
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 90.0
+text = "DEBUG:
+Left click to skip 
+cutscene"

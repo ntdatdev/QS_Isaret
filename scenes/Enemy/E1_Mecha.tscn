@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c6lr8augrefpl"]
 
 [ext_resource type="Script" uid="uid://ce01jdb4sadi1" path="res://scenes/Enemy/e_1_mecha.gd" id="1_8k05a"]
-[ext_resource type="Texture2D" uid="uid://cdujyv45j81ev" path="res://assets/Enemies/Tech_Mecha.png" id="1_bwrco"]
-[ext_resource type="Texture2D" uid="uid://crogrrs2sh7wp" path="res://assets/Animations/MechaAttack.png" id="2_1dbu5"]
+[ext_resource type="Texture2D" uid="uid://cdujyv45j81ev" path="res://Assets/Enemies/Tech_Mecha.png" id="1_bwrco"]
+[ext_resource type="Texture2D" uid="uid://crogrrs2sh7wp" path="res://Assets/Animations/MechaAttack.png" id="2_1dbu5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q45b"]
 radius = 1.15
@@ -39,6 +39,8 @@ bg_color = Color(0.3969905, 0.6874706, 0.25187606, 1)
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1957542900]
 scale = Vector2(2, 2)
 script = ExtResource("1_8k05a")
+dash_speed = 1000.0
+damage = 22.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064553960]
 scale = Vector2(20, 20)

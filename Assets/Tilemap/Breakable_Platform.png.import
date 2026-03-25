@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5ejwytwjqqlt"
-path="res://.godot/imported/Breakable_Platform.png-11430ed443451efec3ce8a7387715d90.ctex"
+path="res://.godot/imported/Breakable_Platform.png-149f6f2c80dcf5ec0d8e9539e2533784.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilemap/Breakable_Platform.png"
-dest_files=["res://.godot/imported/Breakable_Platform.png-11430ed443451efec3ce8a7387715d90.ctex"]
+source_file="res://Assets/Tilemap/Breakable_Platform.png"
+dest_files=["res://.godot/imported/Breakable_Platform.png-149f6f2c80dcf5ec0d8e9539e2533784.ctex"]
 
 [params]
 

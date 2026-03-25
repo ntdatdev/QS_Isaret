@@ -40,6 +40,7 @@ var direction
 var can_shoot = true
 var can_switch = true
 var face_right = 1
+var frozen = false
 
 func dash():
 	can_dash = false
@@ -63,6 +64,7 @@ func dash():
 
 func _ready():
 	animated_sprite.play("idle")
+	animated_sprite.scale = Vector2(0.8, 0.8)
 	player_sprite.visible = false
 	
 	# Make sure the health bar matches our variables right when the game boots up
@@ -85,7 +87,6 @@ func take_damage(dmg):
 	
 	hp_bar.value = current_hp # Update
 	hp_display.text = "%.1f" % current_hp # update
-	print("bro got -15 dmg")
 	if current_hp <= 0:
 		die()
 
@@ -95,6 +96,11 @@ func die():
 
 func _physics_process(delta: float) -> void:
 	# ----------------------- UI LOADING -----------------------
+	if frozen:
+		animated_sprite.scale = Vector2(0.8, 0.8)
+		animated_sprite.play("idle")
+		return
+	
 	cast_cd.value += 100 * delta / shotgun_cd
 	
 	if current_sp < shield:	
@@ -120,16 +126,21 @@ func _physics_process(delta: float) -> void:
 	# ----------------------- ANIMATION + MOVEMENTS -----------------------
 	if is_dashing:
 		animated_sprite.play("dash")
+		animated_sprite.scale = Vector2(0.8, 0.8)
 		move_and_slide()
 		return # END THE FUNCTION RIGHT HERE
 	elif velocity.y < 0:
 		animated_sprite.play("up")
+		animated_sprite.scale = Vector2(0.8, 0.8)
 	elif velocity.y > 0:
 		animated_sprite.play("down")
+		animated_sprite.scale = Vector2(0.8, 0.8)
 	elif direction != 0:
 		animated_sprite.play("sprint")
+		animated_sprite.scale = Vector2(0.45, 0.45)
 	else:
 		animated_sprite.play("idle")
+		animated_sprite.scale = Vector2(0.8, 0.8)
 
 	dash_cd.value += 180 * delta
 	# 1. GRAVITY

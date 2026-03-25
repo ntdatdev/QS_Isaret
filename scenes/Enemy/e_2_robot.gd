@@ -20,7 +20,7 @@ func slash(dmg):
 	current_state = "ATTACK"
 	
 	# 1. WINDUP: 0.2 seconds
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.3).timeout
 	
 	anim.play("slash")
 	# 2. STRIKE: Turn monitoring ON. 
@@ -28,7 +28,7 @@ func slash(dmg):
 	$Hitbox.set_deferred("monitoring", true)
 	
 	# 3. ACTIVE FRAMES: Keep it dangerous for 0.1 seconds
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.3).timeout
 	
 	# 4. RECOVERY: Turn monitoring OFF so it stops dealing damage
 	$Hitbox.set_deferred("monitoring", false)

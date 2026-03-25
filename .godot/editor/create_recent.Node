@@ -1,9 +1,14 @@
+Label
+Sprite2D
+Timer
+ColorRect
+AudioStreamPlayer
+AnimationPlayer
+TextureRect
+Control
 AnimatedSprite2D
 CollisionShape2D
-Timer
 Area2D
-Control
 ProgressBar
 Camera2D
 TileMapLayer
-StaticBody2D

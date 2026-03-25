@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp5fer823cmqm"
-path="res://.godot/imported/Tech_Robot.png-40274aab171d0848c9e1e9ccbce994a8.ctex"
+path="res://.godot/imported/Tech_Robot.png-77e042697c8c7753225b439f711c4bc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/Tech_Robot.png"
-dest_files=["res://.godot/imported/Tech_Robot.png-40274aab171d0848c9e1e9ccbce994a8.ctex"]
+source_file="res://Assets/Enemies/Tech_Robot.png"
+dest_files=["res://.godot/imported/Tech_Robot.png-77e042697c8c7753225b439f711c4bc3.ctex"]
 
 [params]
 
