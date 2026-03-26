@@ -1,5 +1,2 @@
-res://scripts/Weapons/w_1_shotgun.gd
-res://scenes/MAIN_SCENE.tscn
 res://scenes/block.tscn
-res://block.gd
-res://icon.gd
+res://scenes/MAIN_SCENE.tscn
