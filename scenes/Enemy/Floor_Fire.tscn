@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://0jhb6auixe4j"]
+
+[ext_resource type="Script" uid="uid://clnyoo0vv15ha" path="res://scenes/Enemy/floor_fire.gd" id="1_25rsg"]
+[ext_resource type="Texture2D" uid="uid://cx72ivxnk3nb1" path="res://Assets/Animations/Fire_Floor.png" id="1_vqnrg"]
+[ext_resource type="Texture2D" uid="uid://d3pkej1e7cuc8" path="res://Assets/warning-sign-icon-transparent-background-free-png.png" id="2_1etp3"]
+[ext_resource type="Texture2D" uid="uid://bljvc1nuvuf1s" path="res://Assets/blank.png" id="3_v5ac0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqnrg"]
+atlas = ExtResource("1_vqnrg")
+region = Rect2(0, 0, 156, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25rsg"]
+atlas = ExtResource("1_vqnrg")
+region = Rect2(156, 0, 156, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jex8t"]
+atlas = ExtResource("1_vqnrg")
+region = Rect2(312, 0, 156, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1etp3"]
+atlas = ExtResource("1_vqnrg")
+region = Rect2(468, 0, 156, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5ac0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1etp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v5ac0")
+}],
+"loop": true,
+"name": &"danger",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqnrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25rsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jex8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1etp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx6bf"]
+size = Vector2(2088.5, 58.5)
+
+[node name="Area2D" type="Area2D" unique_id=1297846216]
+position = Vector2(0, 27)
+scale = Vector2(2, 2)
+script = ExtResource("1_25rsg")
+
+[node name="Anim2" type="AnimatedSprite2D" parent="." unique_id=1419462949]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+animation = &"danger"
+frame_progress = 0.7770498
+
+[node name="Anim1" type="AnimatedSprite2D" parent="." unique_id=1958231433]
+position = Vector2(149, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.4733142
+
+[node name="Anim3" type="AnimatedSprite2D" parent="." unique_id=897788537]
+position = Vector2(-298, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.8920612
+
+[node name="Anim4" type="AnimatedSprite2D" parent="." unique_id=248160138]
+position = Vector2(-149, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.1847773
+
+[node name="Anim5" type="AnimatedSprite2D" parent="." unique_id=2033359585]
+position = Vector2(596.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.18134008
+
+[node name="Anim6" type="AnimatedSprite2D" parent="." unique_id=712227477]
+position = Vector2(745.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.37652642
+
+[node name="Anim7" type="AnimatedSprite2D" parent="." unique_id=234580330]
+position = Vector2(298.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.8057973
+
+[node name="Anim8" type="AnimatedSprite2D" parent="." unique_id=2100422040]
+position = Vector2(447.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.60495013
+
+[node name="Anim9" type="AnimatedSprite2D" parent="." unique_id=917176494]
+position = Vector2(895, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.33876383
+
+[node name="Anim10" type="AnimatedSprite2D" parent="." unique_id=1025323984]
+position = Vector2(1044, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.76099586
+
+[node name="Anim11" type="AnimatedSprite2D" parent="." unique_id=1661026193]
+position = Vector2(1491.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.8663286
+
+[node name="Anim12" type="AnimatedSprite2D" parent="." unique_id=1513976728]
+position = Vector2(1640.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.2190846
+
+[node name="Anim13" type="AnimatedSprite2D" parent="." unique_id=2029315738]
+position = Vector2(1193.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.39320427
+
+[node name="Anim14" type="AnimatedSprite2D" parent="." unique_id=1646087006]
+position = Vector2(1342.5, 0)
+sprite_frames = SubResource("SpriteFrames_v5ac0")
+frame_progress = 0.614865
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266789176]
+position = Vector2(671.25, 45.25)
+shape = SubResource("RectangleShape2D_kx6bf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1387402187]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

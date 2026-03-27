@@ -8,6 +8,10 @@ extends Node2D
 @onready var dialogue_char = $CanvasLayer/Dialogue/BossTvDefault
 @onready var debug_msg = $CanvasLayer/Debug_Message
 
+@onready var TV = $BOSS_PHASE_2
+@onready var bossFlame = $FireFloor
+@onready var Fireball = $Fireball
+
 var PHASE_1 = false
 var PHASE_2 = false
 var PHASE_3 = false
@@ -15,7 +19,8 @@ var i = 0
 
 var msg1 = false
 var in_dialogue = false
-var wall_of_text_PHASE_1 = [[dialogue_char, "Ah… an alien cat. \nSo there is intelligent life out there after all."], 
+var wall_of_text_PHASE_1 = [[0,0], 
+							[dialogue_char, "Ah… an alien cat. \nSo there is intelligent life out there after all."], 
 							[dialogue_char, "How ironic."],
 							[dialogue_char, "Seeing a feline civilization surpass humanity. We used to pet you cats in our laps you know?"],
 							[dialogue_char, "If you have come this far, then you have already seen it—the ruins, the wastelands, the oceans filled with the ghosts of a dead civilization."],
@@ -37,7 +42,7 @@ func _ready():
 	# Arguments: (Property, Target Value, Duration in seconds)
 	tween.tween_property($CanvasLayer/ColorRect, "modulate", Color(0, 0, 0, 0), 1.0)
 	await get_tree().create_timer(1.0).timeout
-	dialogue_message(wall_of_text_PHASE_1[i][0], wall_of_text_PHASE_1[i][1])
+	dialogue_message(wall_of_text_PHASE_1[i+1][0], wall_of_text_PHASE_1[i+1][1])
 
 func _on_player_died():
 	death_menu.show_death()
@@ -56,7 +61,7 @@ func dialogue_message(char, text):
 		in_dialogue = true
 	
 func dialogue_progress():
-	i = 0
+	i = -1
 	player.frozen = false
 	dialogue_box.visible = false
 	dialogue_text.visible = false
@@ -82,4 +87,19 @@ func _process(_delta):
 	if player.position.x > 3000.0 and not msg1:
 		msg1 = true # msg activated
 		dialogue_message(dialogue_char, "Ready?")
+	
+	# ---------------- BOSS ---------------- #
+	if TV.LAVA_FLOOR:
+		bossFlame.enabled()
+	else:
+		bossFlame.disabled()
+	
+	if TV.BULLET_RAIN:
+		pass
+		
+	if TV.TVRAM:
+		pass
+		
+		
+		
 		

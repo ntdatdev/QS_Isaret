@@ -13,7 +13,7 @@ extends CharacterBody2D
 var stamina = 100.0
 var current_hp = 50.0
 var current_sp = 35.0
-
+var on_fire = false
 # World Stats
 var double_jump = 1
 const gravity = 2000.0
@@ -107,6 +107,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	cast_cd.value += 100 * delta / shotgun_cd
+	if on_fire:
+		take_damage(8 * delta)
 	
 	if current_sp < shield:	
 		current_sp += 1.2 * delta

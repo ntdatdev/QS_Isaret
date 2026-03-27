@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://djymp45nbm4dl"]
+
+[ext_resource type="Texture2D" uid="uid://ba25k8hh0tknl" path="res://Assets/Enemies/bossTVgun.png" id="1_6n6tg"]
+[ext_resource type="Script" uid="uid://dle6qbpdis2go" path="res://scenes/Enemy/at_1_guns.gd" id="1_yoe0a"]
+[ext_resource type="Texture2D" uid="uid://dbccddrmun5qa" path="res://Assets/Red-Line.png" id="2_hs6tq"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1652412175]
+scale = Vector2(2, 2)
+script = ExtResource("1_yoe0a")
+
+[node name="G1" type="Sprite2D" parent="." unique_id=474184984]
+position = Vector2(1208, 138)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G1" unique_id=2037570069]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G1" unique_id=2069634560]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G2" type="Sprite2D" parent="." unique_id=138639471]
+position = Vector2(1212, 275)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G2" unique_id=1371148293]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G2" unique_id=670692738]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G3" type="Sprite2D" parent="." unique_id=533098436]
+position = Vector2(1215, 404)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G3" unique_id=1863749930]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G3" unique_id=89151587]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G4" type="Sprite2D" parent="." unique_id=1189503390]
+position = Vector2(1214, 543)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G4" unique_id=179913095]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G4" unique_id=1602313527]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G5" type="Sprite2D" parent="." unique_id=140300630]
+position = Vector2(1210, 678)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G5" unique_id=817185741]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G5" unique_id=1098499901]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G6" type="Sprite2D" parent="." unique_id=62071257]
+position = Vector2(1211, 829)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G6" unique_id=2044339867]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G6" unique_id=2014739518]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G7" type="Sprite2D" parent="." unique_id=638087255]
+position = Vector2(1212, 964)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G7" unique_id=1876318872]
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G7" unique_id=1054055423]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G8" type="Sprite2D" parent="." unique_id=314798153]
+position = Vector2(-745, 10.999985)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G8" unique_id=1492818004]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G8" unique_id=2110712140]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G9" type="Sprite2D" parent="." unique_id=12006457]
+position = Vector2(-512, 10.999985)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G9" unique_id=494702617]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G9" unique_id=84853552]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G10" type="Sprite2D" parent="." unique_id=55452480]
+position = Vector2(-268, 5.999999)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G10" unique_id=863658193]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G10" unique_id=922343597]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G11" type="Sprite2D" parent="." unique_id=12937156]
+position = Vector2(-26.000061, -3.9999847)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G11" unique_id=1584191980]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G11" unique_id=360161431]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G12" type="Sprite2D" parent="." unique_id=1393188728]
+position = Vector2(245.99994, 4.0000305)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G12" unique_id=1332256749]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G12" unique_id=1151978889]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G13" type="Sprite2D" parent="." unique_id=1106253689]
+position = Vector2(544.9999, -2.9999695)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G13" unique_id=451813705]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G13" unique_id=1299809552]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G14" type="Sprite2D" parent="." unique_id=212417052]
+position = Vector2(824.99976, 0.00012207031)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G14" unique_id=289651005]
+visible = false
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G14" unique_id=743362276]
+position = Vector2(-344.99997, -104.99999)
+
+[node name="G15" type="Sprite2D" parent="." unique_id=160647734]
+position = Vector2(1092, -2.9999998)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6n6tg")
+
+[node name="RedLine" type="Sprite2D" parent="G15" unique_id=1179547429]
+position = Vector2(-5255, -155)
+scale = Vector2(10.799998, 0.9704251)
+texture = ExtResource("2_hs6tq")
+
+[node name="Marker2D" type="Marker2D" parent="G15" unique_id=741229262]
+position = Vector2(-359.99997, 264.99997)

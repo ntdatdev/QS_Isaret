@@ -1,6 +1,6 @@
 extends Area2D
-@export var bullet_time = 1
-@export var speed = 2000
+@export var bullet_time = 2
+@export var speed = 2500
 
 
 func _ready():
@@ -17,7 +17,7 @@ func _on_body_entered(body):
 	# Ask the object: "Do you have a function called take_damage?"
 	if body.has_method("take_damage"):
 		# If yes, this must be an enemy! Tell it to take 10 damage.
-		body.take_damage(21)
+		body.take_damage(30)
 		queue_free()
 		
 	# If it DOESN'T have that method (like a Wall), just destroy the bullet.

@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://banycm5e38b06" path="res://scenes/block.tscn" id="15_ti87d"]
 [ext_resource type="PackedScene" uid="uid://cskfpgq25qfyl" path="res://scenes/Enemy/E3_Drone.tscn" id="16_2hdbf"]
 [ext_resource type="PackedScene" uid="uid://bf21xyjqmgy43" path="res://scenes/Enemy/E0_BossTV.tscn" id="17_tvogl"]
+[ext_resource type="PackedScene" uid="uid://djymp45nbm4dl" path="res://scenes/Enemy/AT1_Guns.tscn" id="18_0suj0"]
+[ext_resource type="PackedScene" uid="uid://0jhb6auixe4j" path="res://scenes/Enemy/Floor_Fire.tscn" id="19_rpmmf"]
+[ext_resource type="PackedScene" uid="uid://pycb0gv8lqh1" path="res://scenes/Enemy/Enemy_Fireball.tscn" id="20_nj1gg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yy10"]
 texture = ExtResource("7_vpn6i")
@@ -8248,6 +8251,7 @@ position = Vector2(4041, 1924)
 position = Vector2(234, 276)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2080469048]
+layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=726140704]
 visible = false
@@ -8905,3 +8909,12 @@ position = Vector2(-523, 12343)
 
 [node name="CharacterBody2D11" parent="." unique_id=1659545162 instance=ExtResource("16_2hdbf")]
 position = Vector2(673, 12071)
+
+[node name="Guns" parent="." unique_id=1652412175 instance=ExtResource("18_0suj0")]
+position = Vector2(4538, 11610)
+
+[node name="FireFloor" parent="." unique_id=1297846216 instance=ExtResource("19_rpmmf")]
+position = Vector2(3487, 13505)
+
+[node name="Fireball" parent="." unique_id=1229237499 instance=ExtResource("20_nj1gg")]
+position = Vector2(-3363, 13287)
