@@ -7,8 +7,8 @@ extends CharacterBody2D
 @export var dash_speed = 1000.0
 @export var jump_strength = -750.0
 @export var wall_jump_push = 250.0
-@export var w1_stam_cost = 9.0
-@export var w2_stam_cost = 7.0
+@export var w1_stam_cost = 25.0
+@export var w2_stam_cost = 20.0
 
 var stamina = 100.0
 var current_hp = 50.0
@@ -28,10 +28,11 @@ const gravity = 2000.0
 @onready var player_sprite = $PlayerSprite
 @onready var dash_cd = $HUD/DashCD
 @onready var cast_cd = $HUD/CastCD
+@onready var switch_cd = $HUD/SwapCD
 @export var shotgun_cd = 0.6
 @export var rifle_cd = 0.45
 @export var railgun_cd = 10.0
-@export var switch_weapon_cd = 2.0
+@export var switch_weapon_cd = 1.0
 
 # die
 signal died
@@ -94,6 +95,9 @@ func take_damage(dmg):
 	hp_display.text = "%.1f" % current_hp # update
 	if current_hp <= 0:
 		die()
+	modulate = Color(10, 10, 10, 1)
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1, 1, 1, 1)
 
 func die():
 	died.emit()
@@ -115,8 +119,10 @@ func _physics_process(delta: float) -> void:
 		sp_bar.value = current_sp
 		sp_display.text = "%.1f" % current_sp
 	
+	switch_cd.value += 100 / switch_weapon_cd * delta
+	
 	if stamina < 100.0:	
-		stamina += 1.8 * delta
+		stamina += 15 * delta
 		stam_bar.value = stamina
 	
 	if direction == -1:
@@ -126,6 +132,7 @@ func _physics_process(delta: float) -> void:
 		active_weapon.scale.x = -1
 		active_weapon.position.x = -45.0
 		side_weapon.scale.x = -1
+		side_weapon.position.x = -45.0
 	elif direction == 1:
 		face_right = 1
 		player_sprite.flip_h = false
@@ -133,6 +140,7 @@ func _physics_process(delta: float) -> void:
 		active_weapon.scale.x = 1
 		active_weapon.position.x = 45.0
 		side_weapon.scale.x = 1
+		side_weapon.position.x = 45.0
 	
 	# ----------------------- ANIMATION + MOVEMENTS -----------------------
 	if is_dashing:
@@ -202,6 +210,7 @@ func _physics_process(delta: float) -> void:
 	# Switch weapon
 	if can_switch and Input.is_action_just_pressed("switch_weapon"):
 		can_switch = false
+		switch_cd.value = 0.0
 		if active_weapon == $W1_Shotgun:
 			active_weapon = $W2_Standard
 			side_weapon = $W1_Shotgun

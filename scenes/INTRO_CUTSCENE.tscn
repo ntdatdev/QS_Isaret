@@ -92,13 +92,20 @@ _data = {
 
 [node name="Intro" type="Control" unique_id=1506883091]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_di5kx")
 
 [node name="Background" type="ColorRect" parent="." unique_id=749390584]
-layout_mode = 0
-offset_right = 1166.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1101604726]
@@ -112,21 +119,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Slideshow" type="TextureRect" parent="." unique_id=98153633]
-layout_mode = 0
-offset_left = 202.00003
-offset_top = 21.000002
-offset_right = 2250.0
-offset_bottom = 1448.0
-scale = Vector2(0.35, 0.35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_qumt3")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Flash_Fade" type="ColorRect" parent="." unique_id=1850309753]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 1148.0
-offset_bottom = 647.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1122165434]
@@ -134,11 +143,3 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1519325219]
 root_node = NodePath("../Slideshow")
 libraries/ = SubResource("AnimationLibrary_bjyll")
-
-[node name="Label2" type="Label" parent="." unique_id=240460680]
-layout_mode = 0
-offset_right = 197.0
-offset_bottom = 90.0
-text = "DEBUG:
-Left click to skip 
-cutscene"

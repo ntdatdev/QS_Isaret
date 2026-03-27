@@ -87,6 +87,9 @@ func _ready():
 func take_damage(damage):
 	current_hp -= damage
 	hp_bar.value = current_hp
+	modulate = Color(10, 10, 10, 1)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1, 1, 1, 1)
 
 func die():
 	frozen = true
@@ -126,19 +129,22 @@ func _physics_process(delta: float) -> void:
 		"CHASE":
 			anim.play("idle")
 			if player != null:
-				# 1. Check if we are close enough to attack!
 				var distance = global_position.distance_to(player.global_position)
 				
 				if distance <= attack_range:
-					slash(attack_power) # Trigger the attack
+					velocity.x = 0 # STOP horizontal movement to attack
+					slash(attack_power)
 				else:
-					# Otherwise, keep moving toward the player
 					var direction = global_position.direction_to(player.global_position)
+					# Only care about left/right
 					if direction.x > 0:
 						anim.flip_h = true
+						velocity.x = speed
 					else:
 						anim.flip_h = false
-					velocity = direction * speed
+						velocity.x = -speed
+			else:
+				velocity.x = 0 # STOP if player is gone
 					
 		"ATTACK":
 			# 2. Stop moving while attacking so we don't slide into the player
@@ -146,10 +152,7 @@ func _physics_process(delta: float) -> void:
 
 	# Falling Gravity
 	if not is_on_floor():
-		if is_on_wall() and velocity.y > 0:
-			velocity.y = -50
-		else:
-			velocity.y += gravity * delta
+		velocity.y += gravity * delta
 	
 	# Death Condition
 	if current_hp <= 0.0:

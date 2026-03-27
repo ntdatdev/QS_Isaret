@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://by6o05kjl0v55"]
 
-[ext_resource type="Script" uid="uid://nxew86uxx3qg" path="res://Weapons/w_1_bullet.gd" id="1_j2wu8"]
+[ext_resource type="Script" uid="uid://nxew86uxx3qg" path="res://scripts/Weapons/w_1_bullet.gd" id="1_j2wu8"]
 [ext_resource type="Texture2D" uid="uid://bn38rgx5sr0xp" path="res://Assets/Staff_Projectile.png" id="2_j2wu8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2wu8"]
 size = Vector2(62, 13)
 
-[node name="Bullet" type="Area2D" unique_id=758739834]
+[node name="Bullet" type="Area2D" unique_id=758739834 groups=["Bullet 2"]]
 script = ExtResource("1_j2wu8")
 
 [node name="Timer" type="Timer" parent="." unique_id=11648442]

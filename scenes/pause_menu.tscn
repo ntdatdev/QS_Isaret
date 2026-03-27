@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://detq8tdq7818t"]
 
 [ext_resource type="Script" uid="uid://ck8wrnwqpvd5m" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://bh6x32nvhyjq5" path="res://Assets/UI Pack - Sci-fi/Font/Kenney Future.ttf" id="2_myx47"]
+[ext_resource type="Texture2D" uid="uid://ck2i2v0ulyakw" path="res://Assets/UI Pack - Sci-fi/Vector/Blue/button_square_header_small_square_screws.svg" id="3_kukqi"]
+[ext_resource type="Texture2D" uid="uid://bkt3uojh40dah" path="res://Assets/UI Pack - Sci-fi/Vector/Green/button_square_header_small_square_screws.svg" id="4_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://bf0f3vl0o5bta" path="res://Assets/UI Pack - Sci-fi/Vector/Red/button_square_header_small_square_screws.svg" id="5_v4r4p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
+texture = ExtResource("3_kukqi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s2dm"]
+texture = ExtResource("4_7l7mv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88e76"]
+texture = ExtResource("5_v4r4p")
 
 [node name="PauseMenu" type="Control" unique_id=657724120]
 layout_mode = 3
@@ -21,7 +34,7 @@ offset_left = 2.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.46666667)
 
 [node name="Label" type="Label" parent="." unique_id=1250363240]
 layout_mode = 1
@@ -36,9 +49,11 @@ offset_right = 225.5
 offset_bottom = -103.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.6392157, 0.34117648, 0, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 96
 text = "GAME PAUSED"
+metadata/_edit_use_anchors_ = true
 
 [node name="ResumeButton" type="Button" parent="." unique_id=1009887823]
 layout_mode = 1
@@ -47,14 +62,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -48.0
-offset_right = 76.5
-offset_bottom = 5.0
+offset_left = -124.0
+offset_top = -46.0
+offset_right = 128.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.6392157, 0.34117648, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_5d2l8")
 text = "Continue"
 
 [node name="MainMenu Button" type="Button" parent="." unique_id=401870982]
@@ -64,33 +81,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = 51.0
-offset_right = 93.0
-offset_bottom = 104.0
+offset_left = -124.0
+offset_top = 70.0
+offset_right = 128.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.6392157, 0.34117648, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_1s2dm")
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="." unique_id=648560414]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4856771
-anchor_top = 0.6203704
-anchor_right = 0.51432294
-anchor_bottom = 0.654321
+anchor_left = 0.46875
+anchor_top = 0.6435185
+anchor_right = 0.53125
+anchor_bottom = 0.7083334
 offset_left = -19.0
-offset_top = 74.0
+offset_top = 90.0
 offset_right = 23.0
-offset_bottom = 104.99997
+offset_bottom = 120.99997
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.6392157, 0.34117648, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_88e76")
 text = "Quit"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MainMenu Button" to="." method="_on_main_menu_button_pressed"]

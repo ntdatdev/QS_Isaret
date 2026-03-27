@@ -10,6 +10,7 @@ extends Node2D
 
 @onready var TV = $BOSS_PHASE_2
 @onready var bossFlame = $FireFloor
+@onready var bulletRain = $Guns
 @onready var Fireball = $Fireball
 
 var PHASE_1 = false
@@ -17,6 +18,7 @@ var PHASE_2 = false
 var PHASE_3 = false
 var i = 0
 
+var not_called = true
 var msg1 = false
 var in_dialogue = false
 var wall_of_text_PHASE_1 = [[0,0], 
@@ -83,23 +85,43 @@ func _process(_delta):
 			i += 1
 			dialogue_message(wall_of_text_PHASE_1[i][0], wall_of_text_PHASE_1[i][1])
 	
+	
+	if TV.LAVA_FLOOR_ON and not_called:
+		print('OK')
+		bossFlame.enabled()
+		not_called = false
+	if not TV.LAVA_FLOOR_ON:
+		not_called = true
+		bossFlame.disabled()
+	
+	if TV.BULLET_RAIN:
+		TV.BULLET_RAIN = false
+		blt_rain()
+			
+		
+	if TV.TVRAM:
+		pass
+	
 	# First dialogue
 	if player.position.x > 3000.0 and not msg1:
+		return
 		msg1 = true # msg activated
 		dialogue_message(dialogue_char, "Ready?")
 	
 	# ---------------- BOSS ---------------- #
-	if TV.LAVA_FLOOR:
-		bossFlame.enabled()
-	else:
-		bossFlame.disabled()
+func blt_rain():
+	bulletRain.visible = true
+	var my_numbers
+	for i in range(3):
+		my_numbers = range(1, 15) 
+		my_numbers.shuffle()
+		var chosen_six = my_numbers.slice(0, 6)
+		for j in chosen_six:
+			bulletRain.shoot(j)
+		
+		await get_tree().create_timer(3).timeout
+	bulletRain.visible = false
 	
-	if TV.BULLET_RAIN:
-		pass
-		
-	if TV.TVRAM:
-		pass
-		
-		
-		
-		
+	
+	
+	

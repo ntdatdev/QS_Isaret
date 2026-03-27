@@ -2,11 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://ba25k8hh0tknl" path="res://Assets/Enemies/bossTVgun.png" id="1_6n6tg"]
 [ext_resource type="Script" uid="uid://dle6qbpdis2go" path="res://scenes/Enemy/at_1_guns.gd" id="1_yoe0a"]
+[ext_resource type="PackedScene" uid="uid://xa0k35jhleov" path="res://scenes/Enemy/Enemy_Bullet.tscn" id="2_6ql8l"]
 [ext_resource type="Texture2D" uid="uid://dbccddrmun5qa" path="res://Assets/Red-Line.png" id="2_hs6tq"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1652412175]
 scale = Vector2(2, 2)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_yoe0a")
+bullet_scene = ExtResource("2_6ql8l")
 
 [node name="G1" type="Sprite2D" parent="." unique_id=474184984]
 position = Vector2(1208, 138)
@@ -98,6 +102,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_6n6tg")
 
 [node name="RedLine" type="Sprite2D" parent="G7" unique_id=1876318872]
+visible = false
 position = Vector2(-5255, -155)
 scale = Vector2(10.799998, 0.9704251)
 texture = ExtResource("2_hs6tq")
@@ -217,9 +222,10 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_6n6tg")
 
 [node name="RedLine" type="Sprite2D" parent="G15" unique_id=1179547429]
+visible = false
 position = Vector2(-5255, -155)
 scale = Vector2(10.799998, 0.9704251)
 texture = ExtResource("2_hs6tq")
 
 [node name="Marker2D" type="Marker2D" parent="G15" unique_id=741229262]
-position = Vector2(-359.99997, 264.99997)
+position = Vector2(-359.99994, -100)

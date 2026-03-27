@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bf21xyjqmgy43"]
+
+[ext_resource type="Script" uid="uid://b0hcpcr34lvq" path="res://scenes/Enemy/e_0_boss_tv.gd" id="1_gjjwr"]
+[ext_resource type="Texture2D" uid="uid://chw3vtgrfi7ys" path="res://Assets/Animations/Boss_TV_default.png" id="1_yew8x"]
+[ext_resource type="Texture2D" uid="uid://dyw63rjaa1jj3" path="res://Assets/Animations/Boss_TV_Glitch.png" id="2_gjjwr"]
+[ext_resource type="PackedScene" uid="uid://pycb0gv8lqh1" path="res://scenes/Enemy/Enemy_Fireball.tscn" id="2_qae3l"]
+[ext_resource type="Texture2D" uid="uid://dxuchws6mxkd0" path="res://Assets/Animations/Boss_TV_mad.png" id="3_qae3l"]
+[ext_resource type="Texture2D" uid="uid://dnasmrq1wkayq" path="res://Assets/Animations/Boss_TV_warning.png" id="4_p8epp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5as37"]
+atlas = ExtResource("2_gjjwr")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptdsw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yew8x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5as37")
+}],
+"loop": true,
+"name": &"glitch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qae3l")
+}],
+"loop": true,
+"name": &"mad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p8epp")
+}],
+"loop": true,
+"name": &"warning",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yew8x"]
+size = Vector2(527.7499, 468.33752)
+
+[node name="Boss_TV" type="CharacterBody2D" unique_id=630193660]
+script = ExtResource("1_gjjwr")
+bullet_scene = ExtResource("2_qae3l")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1392074527]
+position = Vector2(-412, 283)
+
+[node name="BossState" type="AnimatedSprite2D" parent="." unique_id=1698139718]
+scale = Vector2(0.49316406, 0.49316406)
+sprite_frames = SubResource("SpriteFrames_ptdsw")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1873766763]
+position = Vector2(-76.013245, -39.607796)
+rotation = 2.740167
+shape = SubResource("RectangleShape2D_yew8x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1948055823]
+
+[node name="hpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1856195393]
+visible = false
+offset_left = 507.0
+offset_top = 35.0
+offset_right = 1103.0
+offset_bottom = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=951264960]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pycb0gv8lqh1" path="res://scenes/Enemy/Enemy_Fireball.tscn" id="2_qae3l"]
 [ext_resource type="Texture2D" uid="uid://dxuchws6mxkd0" path="res://Assets/Animations/Boss_TV_mad.png" id="3_qae3l"]
 [ext_resource type="Texture2D" uid="uid://dnasmrq1wkayq" path="res://Assets/Animations/Boss_TV_warning.png" id="4_p8epp"]
+[ext_resource type="Texture2D" uid="uid://dte61a60m6pcc" path="res://Assets/Animations/Fireball.png" id="7_p8epp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5as37"]
 atlas = ExtResource("2_gjjwr")
@@ -49,9 +50,44 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yew8x"]
 size = Vector2(527.7499, 468.33752)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptdsw"]
+atlas = ExtResource("7_p8epp")
+region = Rect2(0, 0, 206, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbkl3"]
+atlas = ExtResource("7_p8epp")
+region = Rect2(206, 0, 206, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnk6o"]
+atlas = ExtResource("7_p8epp")
+region = Rect2(412, 0, 206, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksx4m"]
+atlas = ExtResource("7_p8epp")
+region = Rect2(618, 0, 206, 197)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt5ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptdsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbkl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnk6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksx4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Boss_TV" type="CharacterBody2D" unique_id=630193660]
 script = ExtResource("1_gjjwr")
-max_health = null
 bullet_scene = ExtResource("2_qae3l")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1392074527]
@@ -74,3 +110,12 @@ offset_top = 35.0
 offset_right = 1103.0
 offset_bottom = 80.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=951264960]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1757946636]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-412, 283)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_qt5ei")

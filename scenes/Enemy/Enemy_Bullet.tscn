@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://xa0k35jhleov"]
 
 [ext_resource type="Texture2D" uid="uid://b8qmnucex54c7" path="res://Assets/Enemies/Boss_Bullet.png" id="1_4kvrg"]
+[ext_resource type="Script" uid="uid://7spqpx8tfhll" path="res://scenes/Enemy/enemy_bullet.gd" id="1_lhcbh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kvrg"]
+radius = 43.289722
 
 [node name="Area2D" type="Area2D" unique_id=1197564078]
+script = ExtResource("1_lhcbh")
 
 [node name="BossBullet" type="Sprite2D" parent="." unique_id=142935773]
 position = Vector2(0, 0.99999285)
 scale = Vector2(0.49261993, 0.4926199)
 texture = ExtResource("1_4kvrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609946257]
+position = Vector2(1, 41)
+shape = SubResource("CircleShape2D_4kvrg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

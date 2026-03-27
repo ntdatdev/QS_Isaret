@@ -96,6 +96,8 @@ func die():
 func take_damage(damage):
 	current_hp -= damage
 	hp_bar.value = current_hp
-	
+	modulate = Color(10, 10, 10, 1)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1, 1, 1, 1)
 	if current_hp <= 0:
 		die()
