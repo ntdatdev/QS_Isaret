@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://ckfdi3tb5kyxd" path="res://scenes/zoom_out_trigger.gd" id="20_nj1gg"]
 [ext_resource type="PackedScene" uid="uid://x6g3aelwqofd" path="res://DOOR.tscn" id="22_g6aoc"]
 [ext_resource type="Script" uid="uid://74uunfplo6ud" path="res://scenes/block.gd" id="24_icepw"]
+[ext_resource type="Texture2D" uid="uid://bh6msno3nb2f2" path="res://Assets/cryo.png" id="26_von45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yy10"]
 texture = ExtResource("7_vpn6i")
@@ -8238,6 +8239,7 @@ size = Vector2(65, 732.5)
 script = ExtResource("1_77cmg")
 
 [node name="CharacterBody2D" parent="." unique_id=720078412 instance=ExtResource("1_awche")]
+z_index = 1
 position = Vector2(-3683, 13469)
 collision_layer = 7
 collision_mask = 7
@@ -8801,7 +8803,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("8_8yy10")
 
 [node name="Block30" parent="." unique_id=1547196161 instance=ExtResource("15_ti87d")]
-position = Vector2(3788, 13295)
+position = Vector2(3570, 13295)
 collision_layer = 4
 
 [node name="BreakablePlatform3" type="Sprite2D" parent="Block30" unique_id=538765207 groups=["Passable Block"]]
@@ -8810,7 +8812,7 @@ scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
 
 [node name="Block32" parent="." unique_id=916249326 instance=ExtResource("15_ti87d")]
-position = Vector2(4375, 12908)
+position = Vector2(4240, 12908)
 collision_layer = 4
 
 [node name="BreakablePlatform3" type="Sprite2D" parent="Block32" unique_id=2072597338 groups=["Passable Block"]]
@@ -8819,7 +8821,7 @@ scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
 
 [node name="Block33" parent="." unique_id=571079546 instance=ExtResource("15_ti87d")]
-position = Vector2(5182, 12908)
+position = Vector2(5313, 12908)
 collision_layer = 4
 
 [node name="BreakablePlatform3" type="Sprite2D" parent="Block33" unique_id=1448283470 groups=["Passable Block"]]
@@ -8828,7 +8830,7 @@ scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
 
 [node name="Block31" parent="." unique_id=1858401235 instance=ExtResource("15_ti87d")]
-position = Vector2(5784, 13295)
+position = Vector2(5976, 13295)
 collision_layer = 4
 
 [node name="BreakablePlatform3" type="Sprite2D" parent="Block31" unique_id=1423025820 groups=["Passable Block"]]
@@ -8882,5 +8884,25 @@ script = ExtResource("24_icepw")
 position = Vector2(7, 0)
 scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
+
+[node name="Cryo" type="Sprite2D" parent="." unique_id=97482557]
+position = Vector2(3572.9998, 13006.999)
+scale = Vector2(0.5062494, 0.5062494)
+texture = ExtResource("26_von45")
+
+[node name="Cryo2" type="Sprite2D" parent="." unique_id=267678068]
+position = Vector2(5976, 13011.999)
+scale = Vector2(0.5062494, 0.5062494)
+texture = ExtResource("26_von45")
+
+[node name="Cryo3" type="Sprite2D" parent="." unique_id=1193210163]
+position = Vector2(5313, 12621)
+scale = Vector2(0.5062494, 0.5062494)
+texture = ExtResource("26_von45")
+
+[node name="Cryo4" type="Sprite2D" parent="." unique_id=1961940956]
+position = Vector2(4253, 12622.999)
+scale = Vector2(0.5062494, 0.5062494)
+texture = ExtResource("26_von45")
 
 [connection signal="body_entered" from="ZoomOutTrigger" to="ZoomOutTrigger" method="_on_body_entered"]
