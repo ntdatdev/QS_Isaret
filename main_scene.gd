@@ -62,7 +62,7 @@ var in_dialogue = false
 							[TV_s, "..."],
 							[TV_g, "Fine. Your choice."],
 							[0,0], # PHASE 3 COMBAT. IDX 29: ACTIVATE BOSS
-							[TV_g, "Gah, hah, hah, haaah…"], # PHASE 2 COMPLETE
+							[TV_g, "..."], # PHASE 2 COMPLETE
 							[TV_g, "So I have..."],
 							[TV_g, "... underestimated you."],
 							[TV_g, "..."],
@@ -73,7 +73,7 @@ var in_dialogue = false
 							[0,0], # PHASE 3 BEGINS. INDEX 38: Transform to Mecha
 							[Mecha, "Now, let's end this battle, ONCE AND FOR ALL!"],
 							[0,0], # PHASE 3 COMBAT. INDEX 40
-							[Mecha, "..."], # PHASE 3 COMPLETE
+							[Mecha, "Gah, hah, hah, haaah..."], # PHASE 3 COMPLETE
 							[Mecha, "So, this is it, huh..."],
 							[Mecha, "....."],
 							[Mecha, "...Three hundred and eighty three million, two hundred and fifty two thousand, one hundred and sixteen."],
