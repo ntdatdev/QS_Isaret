@@ -3,6 +3,7 @@ extends Control
 @onready var anim_player = $AnimationPlayer
 
 func _ready():
+	Engine.max_fps = 120
 	# 1. Start the animation as soon as the scene loads
 	anim_player.play("IntroSequence")
 	

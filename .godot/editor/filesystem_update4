@@ -1,2 +1,4 @@
-res://main_scene.gd
 res://scenes/MAIN_SCENE.tscn
+res://main_scene.gd
+res://scripts/main_menu.gd
+res://intro_cutscene.gd

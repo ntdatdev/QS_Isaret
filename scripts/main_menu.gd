@@ -2,6 +2,9 @@ extends Control
 
 var started = false
 
+func _ready() -> void:
+	Engine.max_fps = 120
+
 func _on_start_button_pressed() -> void:
 	# Create a Tween object (Godot 4 syntax)
 	if not started:
