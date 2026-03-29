@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c25d2e5mlooo8"]
+
+[ext_resource type="Texture2D" uid="uid://h4n31am7dsno" path="res://Assets/655023498_1615665282859970_8667184825053765846_n.jpg" id="1_6enxp"]
+[ext_resource type="FontFile" uid="uid://bh6x32nvhyjq5" path="res://Assets/UI Pack - Sci-fi/Font/Kenney Future.ttf" id="2_0t34t"]
+
+[node name="Control" type="Control" unique_id=1710256571]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1232293615]
+layout_mode = 0
+offset_right = 1159.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="65502349816156652828599708667184825053765846N" type="Sprite2D" parent="." unique_id=1774188747]
+position = Vector2(836.25, 329.25006)
+scale = Vector2(0.3200684, 0.3200684)
+texture = ExtResource("1_6enxp")
+
+[node name="Label" type="Label" parent="." unique_id=1530060211]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059895832
+anchor_top = 0.26080248
+anchor_right = 0.3923611
+anchor_bottom = 0.4521605
+offset_left = -56.0
+offset_top = -159.0
+offset_right = 56.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.36862746, 1)
+theme_override_fonts/font = ExtResource("2_0t34t")
+theme_override_font_sizes/font_size = 60
+text = "GAME
+COMPLETED"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=2018518417]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 152.0
+offset_right = 492.0
+offset_bottom = 671.0
+theme_override_font_sizes/font_size = 18
+text = "Made by Vinuni Gaming Society - Nerd Division
+---------------- CREDITS ----------------
+Lore / Music team:
+Nguyen Lam Vu
+Le Anh Quan
+
+Lead Artist:
+Tran Hoang Nam
+
+Programming team:
+Nguyen Dam Xuan Nguyen
+Nguyen Tien Dat
+
+Special Thanks to:
+QS Impact
+VinUni Library team
+And YOU for playing!
+"
+horizontal_alignment = 1

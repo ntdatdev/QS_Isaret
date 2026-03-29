@@ -1,6 +1,9 @@
 extends CharacterBody2D
 @export var bullet_scene: PackedScene
 
+func delete():
+	queue_free()
+
 func shoot(n: int):
 
 	var gun = "G%d" % n
@@ -9,7 +12,7 @@ func shoot(n: int):
 	var bullet = bullet_scene.instantiate()
 	
 	get_node(line).visible = true
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	get_node(line).visible = false
 	
 	get_tree().current_scene.add_child(bullet)

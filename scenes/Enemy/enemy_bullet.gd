@@ -1,6 +1,6 @@
 extends Area2D
 @export var speed = 2500.0
-@export var attack_damage = 15.0
+@export var attack_damage = 12.0
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

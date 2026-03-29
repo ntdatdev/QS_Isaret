@@ -1,23 +1,23 @@
 extends CharacterBody2D
 
 # -------------- STATS --------------
-@export var max_hp = 600.0
-var current_hp = 600.0
-
-@export var move_speed = 300.0
-@export var dash_speed = 800.0
-@export var detection_range = 1400.0
+@export var max_hp: float = 700.0
+var current_hp = 700.0
+var ON = false
+@export var move_speed = 500.0
+@export var dash_speed = 1500.0
+@export var detection_range = 2500.0
 
 # --- NEW: RANGES & TIMERS ---
-@export var laser_range = 1200.0  # Max distance to shoot laser
-@export var attack_range = 600.0  # Max distance for melee/dash
-var attack_timer = 2.0            # Boss waits 2 seconds before first attack
+@export var laser_range = 1200.0# Max distance to shoot laser
+@export var attack_range = 600.0# Max distance for melee/dash
+var attack_timer = 2.0# Boss waits 2 seconds before first attack
 
 @export var hover_height = 24.0
 @export var hover_speed = 2.0
 
 # --- SKILL VARIABLES ---
-@export var minion_scene: PackedScene 
+@export var minion_scene: PackedScene
 var has_summoned = false
 
 var is_repairing = false
@@ -33,22 +33,25 @@ var current_state = "IDLE"
 
 # -------------- REFERENCES --------------
 @onready var anim = $AnimatedSprite2D
-@onready var hp_bar = $HealthBar
+@onready var hp_bar = $CanvasLayer/ProgressBar
 @onready var attack_hitbox = $AttackHitbox
 @onready var black_hole_hitbox = $BlackHoleHitbox
 @onready var laser_pivot = $LaserPivot
 @onready var laser_area = $LaserPivot/LaserArea/CollisionShape2D # Assuming this is a CollisionShape2D!
 @onready var laser_visual = $LaserPivot/LaserVisual
+@onready var warning_circle: Sprite2D = $CirclePng44653
 
 var player = null
 var spawn_position = Vector2.ZERO
 var hover_timer = 0.0
 
 func _ready():
+	visible = false
 	spawn_position = global_position
 	current_hp = max_hp
 	hp_bar.max_value = max_hp
 	hp_bar.value = current_hp
+	$CollisionShape2D.disabled = true
 	
 	# Ensure the laser is turned off at the start
 	laser_area.set_deferred("disabled", true)
@@ -77,9 +80,7 @@ func heal(amount):
 
 func update_hp_bar():
 	hp_bar.value = current_hp
-	if current_hp <= 0.0:
-		queue_free()
-
+	
 func find_player():
 	if player == null or not is_instance_valid(player):
 		player = get_tree().get_first_node_in_group("Player")
@@ -106,20 +107,27 @@ func choose_next_attack():
 		
 	# 2. THE LASER ZONE (Between 600 and 1200 pixels away)
 	if distance > attack_range and distance <= laser_range:
-		if randf() < 0.70: 
+		if randf() < 0.70:
 			prepare_and_attack("LASER") # 70% chance to shoot laser
-		else: 
+		else:
 			prepare_and_attack("LUNGE") # 30% chance to dash in to close the gap
 			
 	# 3. THE MELEE ZONE (Less than 600 pixels away)
 	elif distance <= attack_range:
 		var roll = randf()
-		if roll < 0.40: 
-			prepare_and_attack("LUNGE")      # 40% chance
-		elif roll < 0.80: 
-			prepare_and_attack("BLACK_HOLE") # 40% chance
-		else: 
-			prepare_and_attack("REPAIR")     # 20% chance
+		if roll < 0.40:
+			prepare_and_attack("LUNGE")# 40% chance
+		elif roll < 0.80:
+			prepare_and_attack("BLACK_HOLE")# 40% chance
+		else:
+			prepare_and_attack("REPAIR")# 20% chance
+
+func die():
+	var tween = create_tween()
+	
+	tween.tween_property(self, "modulate:a", 0.0, 3.0)
+	await get_tree().create_timer(3.0).timeout
+	$CollisionShape2D.disabled = true
 
 func prepare_and_attack(skill: String):
 	current_state = "PREPARE"
@@ -128,16 +136,16 @@ func prepare_and_attack(skill: String):
 	print("PREPARING: ", skill)
 	
 	# Visual tell: Flash a reddish color to warn the player
-	modulate = Color(2.0, 1.0, 1.0, 1.0) 
+	modulate = Color(2.0, 1.0, 1.0, 1.0)
 	
 	# Wait for 1.2 seconds
 	await get_tree().create_timer(1.2).timeout
 	
 	# Safety check: Did the Mecha die while waiting?
-	if current_hp <= 0: return 
+	if current_hp <= 0: return
 	
 	# Reset color
-	modulate = Color(1.0, 1.0, 1.0, 1.0) 
+	modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	match skill:
 		"SUMMON": execute_summon()
@@ -159,7 +167,7 @@ func execute_lunge():
 # AT2: SUMMON
 func execute_summon():
 	has_summoned = true
-	current_state = "ATTACKING" 
+	current_state = "ATTACKING"
 	print("SUMMONING MINIONS!")
 	
 	if minion_scene:
@@ -182,9 +190,13 @@ func execute_black_hole():
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", player.global_position + Vector2(0, -100), 0.6)
 	await tween.finished
-	
+	warning_circle.visible = true
+	$AnimatedSprite2D.play("prep_bh")
+	await get_tree().create_timer(0.8).timeout
+	warning_circle.visible = false
 	print("BLACK HOLE SLASH!")
 	$BlackHoleHitbox/AnimatedSprite2D.play("default")
+	$AnimatedSprite2D.play("bh")
 	$BlackHoleHitbox/AnimatedSprite2D.visible = true
 	apply_black_hole_slash()
 	await get_tree().create_timer(0.5).timeout
@@ -198,19 +210,21 @@ func execute_black_hole():
 func apply_black_hole_slash():
 	for body in black_hole_hitbox.get_overlapping_bodies():
 		if body.is_in_group("Player"):
-			body.take_damage(18)
+			body.take_damage(15)
 			var pull_dir = body.global_position.direction_to(global_position)
-			body.global_position += pull_dir * 50.0 
+			body.global_position += pull_dir * 50.0
 
 # AT4: GIGA-LAZER
 func execute_laser():
 	current_state = "LASER"
-	laser_duration = 3.0
-	
-	# Aim at player
+	laser_duration = 3
+	$LaserPivot/RedLine.visible = true
 	laser_pivot.rotation = global_position.direction_to(player.global_position).angle()
+	# Aim at player
+	await get_tree().create_timer(1.5).timeout
 	
 	# Turn on laser
+	$LaserPivot/RedLine.visible = false
 	laser_visual.visible = true
 	laser_area.set_deferred("disabled", false)
 	print("FIRING LASER!")
@@ -219,25 +233,42 @@ func execute_laser():
 # AT5: SELF-REPAIR
 func execute_repair():
 	print("INITIATING REPAIR!")
-	heal(50) 
+	heal(50)
 	
 	is_repairing = true
-	repair_timer = 10.0
+	repair_timer = 5.0
 	
 	# Instantly go back to fighting while healing happens in the background!
-	current_state = "IDLE" 
+	current_state = "IDLE"
 
+func activate():
+	visible = true
+	
+	# 2. Set its initial transparency to 0 (completely invisible)
+	modulate.a = 0.0
+	
+	# 3. Create the Tween
+	var tween = create_tween()
+	
+	tween.tween_property(self, "modulate:a", 1.0, 3.0)
+	$CollisionShape2D.disabled = false
 
 # -------------- MAIN LOGIC --------------
 func _physics_process(delta):
+	if not ON:
+		hp_bar.visible = false
+		$CanvasLayer/Label.visible = false
+		return
+	hp_bar.visible = true
+	$CanvasLayer/Label.visible = true
 	find_player()
 	hover_timer += delta
 
 	# --- BACKGROUND REPAIR LOGIC ---
 	if is_repairing:
-		modulate = Color(0,1,0,1)
+		$AnimatedSprite2D.modulate = Color(cos(repair_timer)**2,1,cos(repair_timer)**2,1)
 		repair_timer -= delta
-		heal(5.0 * delta)
+		heal(15s.0 * delta)
 		if repair_timer <= 0:
 			is_repairing = false
 
@@ -251,7 +282,7 @@ func _physics_process(delta):
 				current_state = "CHASE"
 
 		"CHASE":
-			anim.play("idle")
+			anim.play("chase")
 			if player != null and is_instance_valid(player):
 				var distance = global_position.distance_to(player.global_position)
 				
@@ -269,7 +300,7 @@ func _physics_process(delta):
 						
 				# --- MOVEMENT WHILE ON COOLDOWN ---
 				else:
-					if distance > attack_range * 0.8: 
+					if distance > attack_range * 0.8:
 						# 1. Player is far away: Walk closer to them
 						velocity = global_position.direction_to(player.global_position) * move_speed
 						
@@ -286,7 +317,7 @@ func _physics_process(delta):
 				current_state = "IDLE"
 
 		"PREPARE", "ATTACKING":
-			velocity = Vector2.ZERO 
+			velocity = Vector2.ZERO
 			
 		"LASER":
 			velocity = Vector2.ZERO
@@ -299,11 +330,11 @@ func _physics_process(delta):
 			# In a standard Area2D + CollisionShape setup, Area2D handles overlapping bodies
 			# If you used an Area2D script to handle damage, this loop goes there.
 			# Otherwise, we check the parent of the collision shape (which should be the Area2D)
-			var actual_area = laser_area.get_parent() 
+			var actual_area = laser_area.get_parent()
 			if actual_area is Area2D:
 				for body in actual_area.get_overlapping_bodies():
 					if body.is_in_group("Player"):
-						body.take_damage(20.0 * delta)
+						body.take_damage(10.0 * delta)
 			
 			if laser_duration <= 0:
 				laser_visual.visible = false
@@ -317,11 +348,11 @@ func _physics_process(delta):
 			for body in attack_hitbox.get_overlapping_bodies():
 				if body.is_in_group("Player") and not damaged_bodies.has(body):
 					damaged_bodies.append(body)
-					body.take_damage(25.0) 
+					body.take_damage(18.0)
 					current_state = "RECOVER"
 
 			if is_on_wall():
-				take_damage(20.0)
+				take_damage(40.0)
 				print("MECHA HIT A WALL!")
 				current_state = "RECOVER"
 

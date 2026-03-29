@@ -1,5 +1,5 @@
 extends Control
-@export var next_scene_path: String = "res://scenes/MAIN_SCENE.tscn"
+@export var next_scene_path: String = "res://scenes/HELP.tscn"
 @onready var anim_player = $AnimationPlayer
 
 func _ready():

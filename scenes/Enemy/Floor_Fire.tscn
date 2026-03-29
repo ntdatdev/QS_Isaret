@@ -61,10 +61,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_25rsg")
 
 [node name="Anim2" type="AnimatedSprite2D" parent="." unique_id=1419462949]
-scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_v5ac0")
-animation = &"danger"
-frame_progress = 0.7770498
 
 [node name="Anim1" type="AnimatedSprite2D" parent="." unique_id=1958231433]
 position = Vector2(149, 0)

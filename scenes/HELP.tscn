@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bj36jrli7ioiy"]
+
+[ext_resource type="Texture2D" uid="uid://bk4ryc7757qij" path="res://Assets/Isaret Guide.png" id="1_r5vyk"]
+[ext_resource type="Script" uid="uid://cmcvgc4awaagm" path="res://scenes/help.gd" id="1_sjk3l"]
+[ext_resource type="Texture2D" uid="uid://btu7l7bcc0bhc" path="res://Assets/Animations/Idle.png" id="2_sjk3l"]
+[ext_resource type="Texture2D" uid="uid://b5ml7swy8x5e" path="res://Assets/Animations/Drone_Shooting.png" id="3_m3srf"]
+[ext_resource type="Texture2D" uid="uid://be3xmw6tc3px5" path="res://Assets/Animations/Robot_Attack.png" id="4_jirhi"]
+[ext_resource type="Texture2D" uid="uid://bhq6d5d5jg0u7" path="res://Assets/Staff_Weapon.png" id="5_6yjay"]
+[ext_resource type="Texture2D" uid="uid://dpd17w0ge6ofm" path="res://Assets/W2_Bow.png" id="6_d3gk3"]
+[ext_resource type="Texture2D" uid="uid://cvj8gqtk8edpj" path="res://Assets/49wcXf.png" id="7_5vro1"]
+
+[node name="Control" type="Control" unique_id=1750207776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjk3l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1460491026]
+layout_mode = 0
+offset_right = 1162.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+
+[node name="IsaretGuide" type="Sprite2D" parent="." unique_id=1708999278]
+position = Vector2(693.99994, 325)
+scale = Vector2(0.45827436, 0.45827442)
+texture = ExtResource("1_r5vyk")
+
+[node name="Idle" type="Sprite2D" parent="." unique_id=351042051]
+position = Vector2(78, 124.00001)
+rotation = 0.5235988
+scale = Vector2(0.42161644, 0.42161644)
+texture = ExtResource("2_sjk3l")
+
+[node name="DroneShooting" type="Sprite2D" parent="." unique_id=728029730]
+position = Vector2(157, 243.99997)
+rotation = -0.5235988
+scale = Vector2(0.12550409, 0.12550408)
+texture = ExtResource("3_m3srf")
+
+[node name="RobotAttack" type="Sprite2D" parent="." unique_id=1237888560]
+position = Vector2(110.999985, 579.00006)
+rotation = 0.34906584
+scale = Vector2(0.09029449, 0.09029448)
+texture = ExtResource("4_jirhi")
+
+[node name="StaffWeapon" type="Sprite2D" parent="." unique_id=225351719]
+position = Vector2(176.4375, 397.96417)
+scale = Vector2(0.18000859, 0.18000859)
+texture = ExtResource("5_6yjay")
+
+[node name="W2Bow" type="Sprite2D" parent="." unique_id=1399244310]
+position = Vector2(76, 359)
+rotation = -0.17453292
+scale = Vector2(0.7372881, 0.73728806)
+texture = ExtResource("6_d3gk3")
+
+[node name="49WcXf" type="Sprite2D" parent="." unique_id=1709740044]
+position = Vector2(177, 60)
+scale = Vector2(0.31400025, 0.31400025)
+texture = ExtResource("7_5vro1")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1875184158]
+layout_mode = 0
+offset_right = 1159.5111
+offset_bottom = 663.0
+color = Color(0, 0, 0, 1)

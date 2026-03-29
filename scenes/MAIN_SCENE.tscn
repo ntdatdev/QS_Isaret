@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://lp88fxew05ea" path="res://main_scene.gd" id="1_77cmg"]
 [ext_resource type="PackedScene" uid="uid://p8e8qwgigc2v" path="res://scenes/Player_Movement_Test.tscn" id="1_awche"]
+[ext_resource type="Texture2D" uid="uid://bly56xfkgk7nw" path="res://Assets/DOOR.png" id="3_g6aoc"]
 [ext_resource type="PackedScene" uid="uid://detq8tdq7818t" path="res://scenes/pause_menu.tscn" id="4_a72qe"]
+[ext_resource type="Texture2D" uid="uid://cphm1rq3mqerh" path="res://Assets/Tech_Mecha.png" id="4_q1mpu"]
 [ext_resource type="PackedScene" uid="uid://c2640f1al8fmo" path="res://scenes/death_menu.tscn" id="5_3jhfm"]
+[ext_resource type="Texture2D" uid="uid://dyw63rjaa1jj3" path="res://Assets/Animations/Boss_TV_Glitch.png" id="5_ih065"]
+[ext_resource type="Texture2D" uid="uid://dxuchws6mxkd0" path="res://Assets/Animations/Boss_TV_mad.png" id="6_q1mpu"]
 [ext_resource type="Texture2D" uid="uid://cyvwsauvyi17m" path="res://Assets/Dialogue_Box.png" id="6_wwgyg"]
+[ext_resource type="Texture2D" uid="uid://dnasmrq1wkayq" path="res://Assets/Animations/Boss_TV_warning.png" id="7_icepw"]
 [ext_resource type="Texture2D" uid="uid://chw3vtgrfi7ys" path="res://Assets/Animations/Boss_TV_default.png" id="7_tvogl"]
 [ext_resource type="Texture2D" uid="uid://b20yqdqqcx4r1" path="res://Assets/Tilemap/Tile.jpg" id="7_vpn6i"]
 [ext_resource type="Texture2D" uid="uid://dvislrht4u0xa" path="res://Assets/Tilemap/placeholder_bg.png" id="8_8yy10"]
@@ -18,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://djymp45nbm4dl" path="res://scenes/Enemy/AT1_Guns.tscn" id="18_0suj0"]
 [ext_resource type="PackedScene" uid="uid://0jhb6auixe4j" path="res://scenes/Enemy/Floor_Fire.tscn" id="19_rpmmf"]
 [ext_resource type="Script" uid="uid://ckfdi3tb5kyxd" path="res://scenes/zoom_out_trigger.gd" id="20_nj1gg"]
+[ext_resource type="PackedScene" uid="uid://x6g3aelwqofd" path="res://DOOR.tscn" id="22_g6aoc"]
+[ext_resource type="Script" uid="uid://74uunfplo6ud" path="res://scenes/block.gd" id="24_icepw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yy10"]
 texture = ExtResource("7_vpn6i")
@@ -8231,9 +8238,16 @@ size = Vector2(65, 732.5)
 script = ExtResource("1_77cmg")
 
 [node name="CharacterBody2D" parent="." unique_id=720078412 instance=ExtResource("1_awche")]
-position = Vector2(1721, 12071)
-collision_layer = 5
-collision_mask = 5
+position = Vector2(-3683, 13469)
+collision_layer = 7
+collision_mask = 7
+
+[node name="Door2" type="Sprite2D" parent="." unique_id=2044074107]
+position = Vector2(-3661, 13531)
+texture = ExtResource("3_g6aoc")
+
+[node name="Door" parent="." unique_id=110462535 instance=ExtResource("22_g6aoc")]
+position = Vector2(4789, 13404)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2080469048]
 layer = 2
@@ -8250,10 +8264,35 @@ position = Vector2(420, 555.99994)
 scale = Vector2(0.21924016, 0.15244931)
 texture = ExtResource("6_wwgyg")
 
+[node name="TechMecha" type="Sprite2D" parent="CanvasLayer/Dialogue" unique_id=105057403]
+visible = false
+position = Vector2(1295.3828, -13.118652)
+scale = Vector2(3.4015777, 4.891872)
+texture = ExtResource("4_q1mpu")
+
 [node name="BossTvDefault" type="Sprite2D" parent="CanvasLayer/Dialogue" unique_id=1569504604]
-position = Vector2(1272.5769, 78.715065)
+visible = false
+position = Vector2(1275, 80)
 scale = Vector2(0.32015333, 0.4604184)
 texture = ExtResource("7_tvogl")
+
+[node name="BossTvGlitch" type="Sprite2D" parent="CanvasLayer/Dialogue" unique_id=965444344]
+visible = false
+position = Vector2(1275, 80)
+scale = Vector2(0.32, 0.46)
+texture = ExtResource("5_ih065")
+
+[node name="BossTvMad" type="Sprite2D" parent="CanvasLayer/Dialogue" unique_id=20667968]
+visible = false
+position = Vector2(1275, 80)
+scale = Vector2(0.32, 0.46)
+texture = ExtResource("6_q1mpu")
+
+[node name="BossTvWarning" type="Sprite2D" parent="CanvasLayer/Dialogue" unique_id=1338740530]
+visible = false
+position = Vector2(1275, 80)
+scale = Vector2(0.32, 0.46)
+texture = ExtResource("7_icepw")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=985554676]
 visible = false
@@ -8798,10 +8837,10 @@ scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
 
 [node name="BOSS_PHASE_2" parent="." unique_id=2047134428 instance=ExtResource("17_tvogl")]
-position = Vector2(6371, 12148)
+position = Vector2(4763, 12214)
 
 [node name="CharacterBody2D7" parent="." unique_id=1262384605 instance=ExtResource("16_2hdbf")]
-position = Vector2(1954, 12912)
+position = Vector2(1937, 12891)
 
 [node name="CharacterBody2D6" parent="." unique_id=1915508897 instance=ExtResource("9_rpect")]
 position = Vector2(551, 13417)
@@ -8815,6 +8854,7 @@ position = Vector2(670, 12255)
 [node name="Guns" parent="." unique_id=1652412175 instance=ExtResource("18_0suj0")]
 visible = false
 position = Vector2(4538, 11610)
+collision_mask = 2
 
 [node name="FireFloor" parent="." unique_id=1297846216 instance=ExtResource("19_rpmmf")]
 visible = false
@@ -8829,6 +8869,25 @@ position = Vector2(-12.5, -10.25)
 shape = SubResource("RectangleShape2D_uctx4")
 
 [node name="CharacterBody2D2" parent="." unique_id=1957542900 instance=ExtResource("12_wwgyg")]
-position = Vector2(5416, 12289.001)
+visible = false
+position = Vector2(4661, 12476)
+max_hp = null
+move_speed = null
+detection_range = null
+laser_range = null
+attack_range = null
+hover_height = null
+hover_speed = null
+
+[node name="CLOSE" parent="." unique_id=1068604749 instance=ExtResource("15_ti87d")]
+visible = false
+position = Vector2(2695, 12000)
+rotation = 1.5707964
+script = ExtResource("24_icepw")
+
+[node name="BreakablePlatform3" type="Sprite2D" parent="CLOSE" unique_id=418582710]
+position = Vector2(7, 0)
+scale = Vector2(0.10876939, 0.13964996)
+texture = ExtResource("11_ehwwu")
 
 [connection signal="body_entered" from="ZoomOutTrigger" to="ZoomOutTrigger" method="_on_body_entered"]

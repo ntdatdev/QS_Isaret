@@ -2,12 +2,14 @@ extends Area2D
 
 # --- CAMERA SETTINGS ---
 # The exact center of your boss room where the camera should lock
+var boss_entered = false
 @export var arena_center := Vector2(4750, 12700) 
 @export var target_zoom := Vector2(0.27, 0.27) 
 @export var transition_duration: float = 2.0 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		boss_entered = true
 		var camera = body.get_node("Camera2D")
 		
 		if camera:

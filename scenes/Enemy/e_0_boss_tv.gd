@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@export var max_health: float = 850.0
-@export var speed = 500.0
+@export var max_health: float = 1000.0
+@export var speed = 1000.0
 @export var bullet_scene: PackedScene
 
 @export var fixed_x: float = 6300.0 # The fixed horizontal line the boss stays on
@@ -10,8 +10,8 @@ extends CharacterBody2D
 var ON = false
 
 var is_choosing_skill = false
-var idle_timer: float = 6.0
-var current_hp = 850.0
+var idle_timer: float = 3.0
+var current_hp = 1000.0
 var vulnerable = false
 var time_passed = 0.0
 var i = 0
@@ -67,18 +67,20 @@ func vulnerability():
 
 func take_damage(dmg):
 	if vulnerable:
-		current_hp -= 1.5 * dmg
+		current_hp -= 1.25 * dmg
 	else:
 		current_hp -= 0.5 * dmg
 	
 	HP.value = current_hp	
-	if current_hp <= 0:
-		die()
 	modulate = Color(10, 10, 10, 1)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1, 1)
 func die():
-	pass
+	var tween = create_tween()
+	
+	tween.tween_property(self, "modulate:a", 0.0, 3.0)
+	await get_tree().create_timer(3.0).timeout
+	$Hitbox.disabled = true
 	
 func movement_and_skill():
 	# If we are already moving/choosing, abort! This prevents the rapid-fire glitch.
@@ -123,9 +125,10 @@ func movement_and_skill():
 			
 	# Unlock the door and reset the 3-second timer for the NEXT attack cycle
 	is_choosing_skill = false
-	idle_timer = 6.0
+	idle_timer = 3.0
 
 func _ready():
+	$Hitbox.disabled = true
 	HP.max_value = max_health
 	HP.value = current_hp
 
@@ -134,12 +137,17 @@ func ram():
 	ramming = true
 
 func lava_floor_timer():
-	await get_tree().create_timer(20.0).timeout
+	await get_tree().create_timer(15.0).timeout
 	LAVA_FLOOR_ON = false
 	
 func _physics_process(delta: float) -> void:
 	if not ON:
+		HP.visible = false
+		$CanvasLayer/Label.visible = false
 		return
+	$CanvasLayer/Label.visible = true
+	HP.visible = true
+	$Hitbox.disabled = false
 	if vulnerable:
 		time_passed += delta * 2
 		var pulse = (sin(time_passed)/2 + 0.5)
@@ -169,8 +177,8 @@ func _physics_process(delta: float) -> void:
 			# PHASE 1: Aiming
 			if not ramming and not is_aiming:
 				is_aiming = true
-				aim_timer = 5.0 # Set the 5-second countdown here
-				speed = 500.0   # Reset speed for the next charge
+				aim_timer = 4.0 # Set the 4-second countdown here
+				speed = 1000.0  # Reset speed for the next charge
 				
 			if is_aiming:
 				aim_timer -= delta # Count down

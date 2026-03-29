@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var speed = 500.0
-@export var attack_damage = 30.0
-@export var max_hp = 65.0
-var current_hp = 65.0
+@export var speed = 600.0
+@export var attack_damage = 40.0
+@export var max_hp = 80.0
+var current_hp = 80.0
 var target
 
 func _ready():
@@ -39,6 +39,9 @@ func _on_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		current_hp -= 12
 		modulate = Color(1.0,1.0,1.0,0.3 + 0.7 * current_hp / max_hp)
-		attack_damage = 5 + 25 * current_hp / max_hp
+		attack_damage = 15 + 25 * current_hp / max_hp
+	
+	if current_hp < 0:
+		queue_free()
 	
 	

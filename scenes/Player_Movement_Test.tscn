@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cpeok7q0nka12" path="res://Assets/RMB.png" id="14_r84eb"]
 [ext_resource type="Texture2D" uid="uid://peg5wp2n1g7o" path="res://Assets/SWAP_WEAPONS.png" id="15_uegan"]
 [ext_resource type="Texture2D" uid="uid://c80yn52v5ehgw" path="res://Assets/Stamina.png" id="16_rp8j1"]
+[ext_resource type="Texture2D" uid="uid://c3syeh1be4jf6" path="res://Assets/MEOW.png" id="18_r84eb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thq6h"]
 atlas = ExtResource("5_boojc")
@@ -164,6 +165,9 @@ sprite_frames = SubResource("SpriteFrames_0kcfe")
 animation = &"sprint"
 frame_progress = 0.46174014
 
+[node name="W2_Standard" parent="." unique_id=385477843 instance=ExtResource("4_bksix")]
+position = Vector2(69, 6)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551339865]
 position = Vector2(14.5, 38)
 shape = SubResource("RectangleShape2D_0ipxb")
@@ -187,9 +191,9 @@ texture = ExtResource("2_tcn2r")
 
 [node name="HealthDisplay" type="Label" parent="HUD/HealthBar" unique_id=1751896634]
 layout_mode = 0
-offset_left = -10.0
+offset_left = 9.0
 offset_top = -4.0
-offset_right = 59.10714
+offset_right = 78.10714
 offset_bottom = 41.0
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 25
@@ -212,9 +216,9 @@ texture = ExtResource("3_0qsbf")
 
 [node name="ShieldDisplay" type="Label" parent="HUD/ShieldBar" unique_id=1633349058]
 layout_mode = 0
-offset_left = -19.0
+offset_left = 3.0
 offset_top = -10.0
-offset_right = 67.0
+offset_right = 89.0
 offset_bottom = 46.0
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 25
@@ -264,6 +268,7 @@ offset_left = 1031.0
 offset_top = 387.0
 offset_right = 1101.0
 offset_bottom = 457.0
+fill_mode = 3
 show_percentage = false
 
 [node name="Rmb" type="Sprite2D" parent="HUD/SwapCD" unique_id=462646774]
@@ -289,10 +294,13 @@ position = Vector2(-35, 17)
 scale = Vector2(0.014199998, 0.016523635)
 texture = ExtResource("16_rp8j1")
 
-[node name="W2_Standard" parent="." unique_id=385477843 instance=ExtResource("4_bksix")]
-position = Vector2(69, 6)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=535445828]
 offset = Vector2(70, -100)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
+
+[node name="Meow" type="Sprite2D" parent="." unique_id=263387549]
+visible = false
+position = Vector2(101, -184.99998)
+scale = Vector2(0.69875, 0.69875)
+texture = ExtResource("18_r84eb")

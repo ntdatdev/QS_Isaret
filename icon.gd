@@ -103,6 +103,11 @@ func die():
 	died.emit()
 	queue_free()
 
+func meow():
+	await get_tree().create_timer(1.5).timeout
+	$Meow.visible = true
+	await get_tree().create_timer(1.0).timeout
+	$Meow.visible = false
 func _physics_process(delta: float) -> void:
 	# ----------------------- UI LOADING -----------------------
 	if frozen:

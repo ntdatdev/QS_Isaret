@@ -5,6 +5,9 @@ func disabled():
 	visible = false
 	hitbox.disabled = true
 
+func delete():
+	queue_free()
+
 func enabled():
 	visible = true
 	for i in range(1, 15): # Starts at 1, stops before 16

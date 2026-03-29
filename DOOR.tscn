@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://x6g3aelwqofd"]
+
+[ext_resource type="Script" uid="uid://dn78c2bcocchv" path="res://door.gd" id="1_bl7kt"]
+[ext_resource type="Texture2D" uid="uid://b0jmr3x46t8r1" path="res://Assets/Animations/DOOR.png" id="2_2bgwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flnlh"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(1360, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8uie"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(1088, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf4nj"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(816, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbrvt"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(544, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msq85"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(272, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_421b8"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(0, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe17a"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(1360, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6m1p"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(0, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5wto"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(272, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s3ru"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(544, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1dpq"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(816, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d42a"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(1088, 0, 272, 266)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d5qq"]
+atlas = ExtResource("2_2bgwh")
+region = Rect2(1360, 0, 272, 266)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3moh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flnlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8uie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf4nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbrvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msq85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_421b8")
+}],
+"loop": true,
+"name": &"CLOSE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe17a")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6m1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5wto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s3ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1dpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d42a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d5qq")
+}],
+"loop": true,
+"name": &"OPEN",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6m1p")
+}],
+"loop": true,
+"name": &"SHUT_DOWN",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us78u"]
+size = Vector2(118, 202)
+
+[node name="Area2D" type="Area2D" unique_id=110462535]
+scale = Vector2(2, 2)
+script = ExtResource("1_bl7kt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=193282618]
+sprite_frames = SubResource("SpriteFrames_l3moh")
+animation = &"SHUT_DOWN"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413886117]
+position = Vector2(-7, 15)
+shape = SubResource("RectangleShape2D_us78u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=912901009]
+visible = false
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1941809362]
+offset_left = 200.0
+offset_top = 219.0
+offset_right = 966.0
+offset_bottom = 409.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=636608926]
+offset_left = 75.40344
+offset_top = 243.5
+offset_right = 1078.5966
+offset_bottom = 396.5
+theme_override_font_sizes/font_size = 24
+text = "Now, make your decision:
+ENTER this gate to leave the factory behind, ending the game;
+OR
+DESTROY the gate and FIGHT until your last breath."
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

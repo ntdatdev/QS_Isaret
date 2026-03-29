@@ -50,6 +50,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yew8x"]
 size = Vector2(527.7499, 468.33752)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8epp"]
+bg_color = Color(0.96170956, 0.080841266, 0.2281087, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.73333335, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5as37"]
+bg_color = Color(0.39215687, 1, 0.39215687, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptdsw"]
 atlas = ExtResource("7_p8epp")
 region = Rect2(0, 0, 206, 197)
@@ -105,11 +129,21 @@ shape = SubResource("RectangleShape2D_yew8x")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1948055823]
 
 [node name="hpBar" type="ProgressBar" parent="CanvasLayer" unique_id=1856195393]
-offset_left = 507.0
-offset_top = 35.0
-offset_right = 1103.0
+offset_left = 500.0
+offset_top = 30.0
+offset_right = 1100.0
 offset_bottom = 80.0
-show_percentage = false
+theme_override_styles/background = SubResource("StyleBoxFlat_p8epp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5as37")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1845148804]
+offset_left = 661.0
+offset_top = 90.0
+offset_right = 1098.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 20
+text = "Gaia Le Kurtarici - The Overseer"
+horizontal_alignment = 2
 
 [node name="Timer" type="Timer" parent="." unique_id=951264960]
 

@@ -4,8 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cdujyv45j81ev" path="res://Assets/Enemies/Tech_Mecha.png" id="1_bwrco"]
 [ext_resource type="Texture2D" uid="uid://crogrrs2sh7wp" path="res://Assets/Animations/MechaAttack.png" id="2_1dbu5"]
 [ext_resource type="PackedScene" uid="uid://1l7qbjja6qsk" path="res://scenes/Enemy/E2_Robot.tscn" id="2_r0klc"]
+[ext_resource type="Texture2D" uid="uid://crfbrtbfrnrjo" path="res://Assets/Animations/Mecha_Anim_BH.png" id="3_3rs36"]
+[ext_resource type="Texture2D" uid="uid://bocacupepdlf5" path="res://Assets/Animations/Mecha_Chase.png" id="4_rwa57"]
 [ext_resource type="Texture2D" uid="uid://ikdl51gpqh03" path="res://Assets/Animations/Mecha_Lazer.png" id="4_yg7br"]
 [ext_resource type="Texture2D" uid="uid://cou6xa3gegq2g" path="res://Assets/Animations/Mecha_BH.png" id="5_r0klc"]
+[ext_resource type="Texture2D" uid="uid://dbccddrmun5qa" path="res://Assets/Red-Line.png" id="5_whew2"]
+[ext_resource type="Texture2D" uid="uid://dcu6jpik3ibo1" path="res://Assets/Animations/Mecha_Prep_BH.png" id="7_rwa57"]
+[ext_resource type="Texture2D" uid="uid://cps2bpyfym2is" path="res://Assets/circle-png-44653.png" id="8_l3ci5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q45b"]
 radius = 1.15
@@ -13,6 +18,22 @@ height = 4.9999995
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gvwoi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3rs36")
+}],
+"loop": true,
+"name": &"bh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rwa57")
+}],
+"loop": true,
+"name": &"chase",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_1dbu5")
@@ -28,6 +49,19 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"lazer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rwa57")
+}],
+"loop": true,
+"name": &"prep_bh",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8k05a"]
@@ -35,9 +69,6 @@ radius = 350.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dbu5"]
 radius = 65.03076
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dbu5"]
-bg_color = Color(0.3969905, 0.6874706, 0.25187606, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whew2"]
 size = Vector2(596.80005, 60.400005)
@@ -101,47 +132,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_3rs36")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
+"texture": SubResource("AtlasTexture_uuypt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3rs36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwa57")
+"texture": SubResource("AtlasTexture_l3ci5")
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ac3gq"]
@@ -292,8 +290,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 18.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwa57"]
+bg_color = Color(1, 0.22352941, 0.25490198, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55nvp"]
+bg_color = Color(0.9993842, 0.00026491165, 0.8687577, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.90382624, 0.3306312, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1957542900]
 scale = Vector2(4, 4)
@@ -308,7 +330,7 @@ shape = SubResource("CapsuleShape2D_4q45b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1062255913]
 scale = Vector2(0.23, 0.23)
 sprite_frames = SubResource("SpriteFrames_gvwoi")
-animation = &"dash"
+animation = &"bh"
 
 [node name="TechMecha" type="Sprite2D" parent="." unique_id=1007977115]
 visible = false
@@ -318,6 +340,7 @@ texture = ExtResource("1_bwrco")
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1438329661]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1034560526]
+position = Vector2(0, 16.5)
 shape = SubResource("CircleShape2D_8k05a")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
@@ -333,35 +356,40 @@ shape = SubResource("CircleShape2D_1dbu5")
 
 [node name="RecoveryTimer" type="Timer" parent="." unique_id=1787490974]
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=230645539]
-offset_left = -64.5
-offset_top = -100.0
-offset_right = 64.5
-offset_bottom = -93.0
-theme_override_styles/background = SubResource("StyleBoxFlat_1dbu5")
-show_percentage = false
-
 [node name="LaserPivot" type="Node2D" parent="." unique_id=1393907586]
 scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RedLine" type="Sprite2D" parent="LaserPivot" unique_id=75265911]
+visible = false
+position = Vector2(339.50003, -16.000004)
+scale = Vector2(0.6600001, 0.23382625)
+texture = ExtResource("5_whew2")
 
 [node name="LaserArea" type="Area2D" parent="LaserPivot" unique_id=1332153604]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserPivot/LaserArea" unique_id=775325824]
+visible = false
 position = Vector2(339.4, -1.9999996)
 shape = SubResource("RectangleShape2D_whew2")
 debug_color = Color(0.8488099, 0.0009306562, 0.90414864, 0.41960785)
 
 [node name="LaserVisual" type="AnimatedSprite2D" parent="LaserPivot" unique_id=1682136424]
+visible = false
 position = Vector2(326.40002, 0)
 scale = Vector2(1, 1.8666668)
 sprite_frames = SubResource("SpriteFrames_55nvp")
 frame_progress = 0.44068322
 flip_h = true
 
+[node name="CirclePng44653" type="Sprite2D" parent="." unique_id=1313768483]
+visible = false
+position = Vector2(-1.5, -3)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("8_l3ci5")
+
 [node name="BlackHoleHitbox" type="Area2D" parent="." unique_id=352824034]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlackHoleHitbox" unique_id=1174627030]
-visible = false
 shape = SubResource("CircleShape2D_ac3gq")
 debug_color = Color(0.015686275, 0.16862746, 0.05490196, 0.105882354)
 
@@ -369,6 +397,25 @@ debug_color = Color(0.015686275, 0.16862746, 0.05490196, 0.105882354)
 visible = false
 scale = Vector2(1.8420513, 1.8420516)
 sprite_frames = SubResource("SpriteFrames_jyw2n")
-frame_progress = 0.90857226
+frame_progress = 0.02137071
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278651089]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=677346551]
+offset_left = 500.0
+offset_top = 30.0
+offset_right = 1100.0
+offset_bottom = 80.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rwa57")
+theme_override_styles/fill = SubResource("StyleBoxFlat_55nvp")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=163643274]
+offset_left = 718.0
+offset_top = 94.0
+offset_right = 1097.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 20
+text = "Gaia Le Kurtarici - MECHA Intelligence"
+horizontal_alignment = 2
 
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_body_entered"]
