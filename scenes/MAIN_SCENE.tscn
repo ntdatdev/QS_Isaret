@@ -8331,7 +8331,6 @@ offset_left = 82.0
 offset_top = 452.0
 offset_right = 449.0
 offset_bottom = 475.0
-text = "DEBUG: Left click to progress through Dialogue!"
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=657724120 instance=ExtResource("4_a72qe")]
 visible = false
