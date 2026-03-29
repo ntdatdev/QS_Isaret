@@ -268,7 +268,7 @@ func _physics_process(delta):
 	if is_repairing:
 		$AnimatedSprite2D.modulate = Color(cos(repair_timer)**2,1,cos(repair_timer)**2,1)
 		repair_timer -= delta
-		heal(15s.0 * delta)
+		heal(15.0 * delta)
 		if repair_timer <= 0:
 			is_repairing = false
 
