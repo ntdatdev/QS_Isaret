@@ -114,6 +114,7 @@ animations = [{
 }]
 
 [node name="Boss_TV" type="CharacterBody2D" unique_id=630193660]
+z_index = 2
 script = ExtResource("1_gjjwr")
 bullet_scene = ExtResource("2_qae3l")
 

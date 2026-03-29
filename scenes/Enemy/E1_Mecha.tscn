@@ -318,6 +318,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1957542900]
+z_index = 2
 scale = Vector2(4, 4)
 script = ExtResource("1_8k05a")
 dash_speed = 1000.0
