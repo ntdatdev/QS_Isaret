@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dade2ghg18ktg"]
 
+[ext_resource type="Script" uid="uid://qlgn0pq15gas" path="res://scenes/passive_end.gd" id="1_h8bjn"]
 [ext_resource type="Texture2D" uid="uid://dvislrht4u0xa" path="res://Assets/Tilemap/placeholder_bg.png" id="1_q0nm1"]
 [ext_resource type="Texture2D" uid="uid://dxuchws6mxkd0" path="res://Assets/Animations/Boss_TV_mad.png" id="2_x25la"]
 [ext_resource type="FontFile" uid="uid://bh6x32nvhyjq5" path="res://Assets/UI Pack - Sci-fi/Font/Kenney Future.ttf" id="3_h8bjn"]
+[ext_resource type="AudioStream" uid="uid://bfyre7qypa1su" path="res://Assets/Sounds/Outro.mp3" id="4_x25la"]
 
 [node name="Control" type="Control" unique_id=507374720]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h8bjn")
 
 [node name="PlaceholderBg" type="Sprite2D" parent="." unique_id=1828371534]
 modulate = Color(0.40146014, 0.4014601, 0.40146026, 1)
@@ -68,3 +71,6 @@ QS Impact
 VinUni Library team
 And YOU for playing!"
 horizontal_alignment = 1
+
+[node name="EndingMusic" type="AudioStreamPlayer2D" parent="." unique_id=1705179737]
+stream = ExtResource("4_x25la")

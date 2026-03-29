@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 Label
 ProgressBar
 ColorRect
@@ -11,4 +12,3 @@ Node2D
 Sprite2D
 CollisionPolygon2D
 Timer
-TextureRect

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://c25d2e5mlooo8"]
 
 [ext_resource type="Texture2D" uid="uid://h4n31am7dsno" path="res://Assets/655023498_1615665282859970_8667184825053765846_n.jpg" id="1_6enxp"]
+[ext_resource type="Script" uid="uid://cdojs6q0lbxmi" path="res://scenes/ending.gd" id="1_lcsh4"]
 [ext_resource type="FontFile" uid="uid://bh6x32nvhyjq5" path="res://Assets/UI Pack - Sci-fi/Font/Kenney Future.ttf" id="2_0t34t"]
+[ext_resource type="AudioStream" uid="uid://bfyre7qypa1su" path="res://Assets/Sounds/Outro.mp3" id="3_0t34t"]
 
 [node name="Control" type="Control" unique_id=1710256571]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lcsh4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1232293615]
 layout_mode = 0
@@ -68,3 +71,6 @@ VinUni Library team
 And YOU for playing!
 "
 horizontal_alignment = 1
+
+[node name="EndingMusic" type="AudioStreamPlayer2D" parent="." unique_id=393325791]
+stream = ExtResource("3_0t34t")

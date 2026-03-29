@@ -2,3 +2,11 @@ res://scenes/MAIN_SCENE.tscn
 res://main_scene.gd
 res://scripts/main_menu.gd
 res://intro_cutscene.gd
+res://scenes/Enemy/E0_BossTV.tscn
+res://scenes/Enemy/e_0_boss_tv.gd
+res://scenes/ENDING.tscn
+res://scenes/PASSIVE_END.tscn
+res://scenes/ending_music.gd
+res://scenes/ending.gd
+res://scenes/passive_end.gd
+res://scenes/main_menu.tscn

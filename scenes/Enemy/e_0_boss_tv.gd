@@ -1,4 +1,9 @@
 extends CharacterBody2D
+
+@onready var accept_boss = $AcceptBoss
+@onready var boss_death = $BossDeath
+@onready var boss_monologue = $BossMonologue
+
 @export var max_health: float = 1000.0
 @export var speed = 1000.0
 @export var bullet_scene: PackedScene
@@ -29,6 +34,15 @@ var is_aiming = false
 var aim_timer = 0.0
 var charge_direction := Vector2.ZERO # Store the direction to charge
 @onready var HP = $CanvasLayer/hpBar
+
+func play_accept_boss():
+	accept_boss.play()
+
+func play_boss_death():
+	boss_death.play()
+
+func play_boss_monologue():
+	boss_monologue.play()
 
 func fireball():
 	$AnimatedSprite2D.visible = true
@@ -75,12 +89,15 @@ func take_damage(dmg):
 	modulate = Color(10, 10, 10, 1)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1, 1)
+
 func die():
 	var tween = create_tween()
 	
 	tween.tween_property(self, "modulate:a", 0.0, 3.0)
 	await get_tree().create_timer(3.0).timeout
 	$Hitbox.disabled = true
+	
+	play_boss_death()
 	
 func movement_and_skill():
 	# If we are already moving/choosing, abort! This prevents the rapid-fire glitch.
