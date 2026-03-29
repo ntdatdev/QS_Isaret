@@ -22,8 +22,8 @@ func slash(dmg):
 		return
 	current_state = "ATTACK"
 	
-	# 1. WINDUP: 0.2 seconds
-	await get_tree().create_timer(0.1).timeout
+	# 1. WINDUP: 0.67 seconds
+	await get_tree().create_timer(0.67).timeout
 	
 	anim.play("slash")
 	# 2. STRIKE: Turn monitoring ON. 

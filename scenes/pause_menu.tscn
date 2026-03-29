@@ -15,7 +15,7 @@ texture = ExtResource("4_7l7mv")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88e76"]
 texture = ExtResource("5_v4r4p")
 
-[node name="PauseMenu" type="Control" unique_id=657724120]
+[node name="PauseMenu" type="Control" unique_id=1720980437]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

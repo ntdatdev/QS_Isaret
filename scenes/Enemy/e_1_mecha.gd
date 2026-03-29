@@ -28,6 +28,8 @@ var laser_duration = 0.0
 var dash_direction = Vector2.ZERO
 var damaged_bodies = []
 
+var minion_left = null
+var minion_right = null
 # Current AI state
 var current_state = "IDLE"
 
@@ -71,6 +73,8 @@ func take_damage(amount):
 	# Check for Phase 2 Summon interrupt
 	if current_hp <= (max_hp / 2.0) and not has_summoned and current_state in ["IDLE", "CHASE"]:
 		prepare_and_attack("SUMMON")
+func hide_ui():
+	$CanvasLayer.visible = false
 
 func heal(amount):
 	current_hp += amount
@@ -124,10 +128,16 @@ func choose_next_attack():
 
 func die():
 	var tween = create_tween()
-	
+
 	tween.tween_property(self, "modulate:a", 0.0, 3.0)
 	await get_tree().create_timer(3.0).timeout
 	$CollisionShape2D.disabled = true
+
+	if is_instance_valid(minion_left):
+		minion_left.die()
+
+	if is_instance_valid(minion_right):
+		minion_right.die()
 
 func prepare_and_attack(skill: String):
 	current_state = "PREPARE"
@@ -171,8 +181,8 @@ func execute_summon():
 	print("SUMMONING MINIONS!")
 	
 	if minion_scene:
-		var minion_left = minion_scene.instantiate()
-		var minion_right = minion_scene.instantiate()
+		minion_left = minion_scene.instantiate()
+		minion_right = minion_scene.instantiate()
 		
 		minion_left.global_position = global_position + Vector2(-150, 0)
 		minion_right.global_position = global_position + Vector2(150, 0)

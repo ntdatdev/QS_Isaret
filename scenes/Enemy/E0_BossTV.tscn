@@ -157,11 +157,11 @@ position = Vector2(-412, 283)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_qt5ei")
 
-[node name="AcceptBoss" type="AudioStreamPlayer2D" parent="." unique_id=1840889029]
+[node name="AcceptBoss" type="AudioStreamPlayer" parent="." unique_id=211412338]
 stream = ExtResource("8_fbkl3")
 
-[node name="BossDeath" type="AudioStreamPlayer2D" parent="." unique_id=1408182027]
+[node name="BossDeath" type="AudioStreamPlayer" parent="." unique_id=1704459915]
 stream = ExtResource("9_jnk6o")
 
-[node name="BossMonologue" type="AudioStreamPlayer2D" parent="." unique_id=1776549596]
+[node name="BossMonologue" type="AudioStreamPlayer" parent="." unique_id=1675237622]
 stream = ExtResource("10_ksx4m")

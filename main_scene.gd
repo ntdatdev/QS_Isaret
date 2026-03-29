@@ -1,4 +1,6 @@
 extends Node2D
+@onready var accept_boss: AudioStreamPlayer = $Sound/AcceptBoss
+@onready var boss_monologue: AudioStreamPlayer = $Sound/BossMonologue
 
 @onready var player = $CharacterBody2D
 @onready var death_menu = $CanvasLayer/DeathMenu
@@ -101,11 +103,14 @@ func _ready():
 	
 
 func _on_player_died():
+	TV.hide_ui()
+	FinalBoss.hide_ui()
 	death_menu.show_death()
 
 func enterBossRoom():
 	await get_tree().create_timer(2.0).timeout
 	$CLOSE.enable_node($CLOSE)
+	boss_monologue.play()
 	dialogue_message(wall_of_text_PHASE_1[i+1][0], wall_of_text_PHASE_1[i+1][1]) # BEGIN DIALOGUE
 
 func storyContinue():
@@ -160,6 +165,8 @@ func dialogue_progress():
 		player.current_hp = 50.0
 		player.hp_bar.value = player.current_hp
 		TV.ON = true
+		boss_monologue.stop()
+		accept_boss.play()
 	elif i == 38 and not MECHA_Activated: # Transform to Mecha
 		MECHA_Activated = false
 		TV.die()
@@ -170,6 +177,7 @@ func dialogue_progress():
 		FinalBoss.ON = true
 	elif i == 52: # Roll Screen Ending
 		FinalBoss.die()
+		TV.play_boss_death()
 		GATE.end()
 		pass
 	

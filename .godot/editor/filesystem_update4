@@ -10,3 +10,10 @@ res://scenes/ending_music.gd
 res://scenes/ending.gd
 res://scenes/passive_end.gd
 res://scenes/main_menu.tscn
+res://scenes/death_menu.tscn
+res://scenes/Enemy/e_1_mecha.gd
+res://scenes/pause_menu.tscn
+res://scripts/pause_menu.gd
+res://scripts/death_menu.gd
+res://scenes/Enemy/E1_Mecha.tscn
+res://scenes/Enemy/e_2_robot.gd

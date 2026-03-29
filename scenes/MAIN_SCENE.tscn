@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://lp88fxew05ea" path="res://main_scene.gd" id="1_77cmg"]
 [ext_resource type="PackedScene" uid="uid://p8e8qwgigc2v" path="res://scenes/Player_Movement_Test.tscn" id="1_awche"]
+[ext_resource type="AudioStream" uid="uid://2e0gkvcn13y1" path="res://Assets/Sounds/Accept Boss Fight.mp3" id="2_0bhku"]
 [ext_resource type="Texture2D" uid="uid://bly56xfkgk7nw" path="res://Assets/DOOR.png" id="3_g6aoc"]
+[ext_resource type="AudioStream" uid="uid://bp0vmoq4awgih" path="res://Assets/Sounds/Boss Monologue.mp3" id="3_ge3f4"]
 [ext_resource type="PackedScene" uid="uid://detq8tdq7818t" path="res://scenes/pause_menu.tscn" id="4_a72qe"]
 [ext_resource type="Texture2D" uid="uid://cphm1rq3mqerh" path="res://Assets/Tech_Mecha.png" id="4_q1mpu"]
 [ext_resource type="PackedScene" uid="uid://c2640f1al8fmo" path="res://scenes/death_menu.tscn" id="5_3jhfm"]
@@ -8238,6 +8240,14 @@ size = Vector2(65, 732.5)
 [node name="Node2D" type="Node2D" unique_id=1308558507]
 script = ExtResource("1_77cmg")
 
+[node name="Sound" type="Node2D" parent="." unique_id=1041053735]
+
+[node name="AcceptBoss" type="AudioStreamPlayer" parent="Sound" unique_id=199399765]
+stream = ExtResource("2_0bhku")
+
+[node name="BossMonologue" type="AudioStreamPlayer" parent="Sound" unique_id=2061725523]
+stream = ExtResource("3_ge3f4")
+
 [node name="CharacterBody2D" parent="." unique_id=720078412 instance=ExtResource("1_awche")]
 z_index = 1
 position = Vector2(-3683, 13469)
@@ -8252,7 +8262,7 @@ texture = ExtResource("3_g6aoc")
 position = Vector2(4789, 13404)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2080469048]
-layer = 2
+layer = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=726140704]
 visible = false
@@ -8315,8 +8325,6 @@ text = "DEBUG: Left click to progress through Dialogue!"
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=657724120 instance=ExtResource("4_a72qe")]
 visible = false
-anchors_preset = -1
-anchor_left = -0.0034722222
 
 [node name="DeathMenu" parent="CanvasLayer" unique_id=389948179 instance=ExtResource("5_3jhfm")]
 visible = false
@@ -8396,9 +8404,34 @@ scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
 
 [node name="Block23" parent="Map" unique_id=304971089 instance=ExtResource("15_ti87d")]
-position = Vector2(673, 12451)
+position = Vector2(570, 12614)
 
 [node name="BreakablePlatform3" type="Sprite2D" parent="Map/Block23" unique_id=410596699]
+position = Vector2(-0.5, 1.5)
+scale = Vector2(0.10876939, 0.13964996)
+texture = ExtResource("11_ehwwu")
+
+[node name="Block30" parent="Map" unique_id=318417659 instance=ExtResource("15_ti87d")]
+position = Vector2(573, 11993)
+
+[node name="BreakablePlatform3" type="Sprite2D" parent="Map/Block30" unique_id=577209851]
+position = Vector2(-0.5, 1.5)
+scale = Vector2(0.10876939, 0.13964996)
+texture = ExtResource("11_ehwwu")
+
+[node name="Block31" parent="Map" unique_id=970585580 instance=ExtResource("15_ti87d")]
+position = Vector2(903, 11993)
+
+[node name="BreakablePlatform3" type="Sprite2D" parent="Map/Block31" unique_id=20825428]
+position = Vector2(-0.5, 1.5)
+scale = Vector2(0.10876939, 0.13964996)
+texture = ExtResource("11_ehwwu")
+
+[node name="Block32" parent="Map" unique_id=1549982317 instance=ExtResource("15_ti87d")]
+position = Vector2(2668, 12345)
+rotation = 1.5707964
+
+[node name="BreakablePlatform3" type="Sprite2D" parent="Map/Block32" unique_id=2077523225]
 position = Vector2(-0.5, 1.5)
 scale = Vector2(0.10876939, 0.13964996)
 texture = ExtResource("11_ehwwu")
@@ -8851,7 +8884,7 @@ position = Vector2(551, 13417)
 position = Vector2(2256, 12081)
 
 [node name="CharacterBody2D11" parent="." unique_id=1659545162 instance=ExtResource("16_2hdbf")]
-position = Vector2(670, 12255)
+position = Vector2(570, 12429)
 
 [node name="Guns" parent="." unique_id=1652412175 instance=ExtResource("18_0suj0")]
 visible = false

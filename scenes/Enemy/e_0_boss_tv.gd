@@ -34,15 +34,23 @@ var is_aiming = false
 var aim_timer = 0.0
 var charge_direction := Vector2.ZERO # Store the direction to charge
 @onready var HP = $CanvasLayer/hpBar
+func hide_ui():
+	$CanvasLayer.visible = false
 
 func play_accept_boss():
 	accept_boss.play()
+func stop_accept_boss():
+	accept_boss.stop()
 
 func play_boss_death():
 	boss_death.play()
+func stop_boss_death():
+	boss_death.stop()
 
 func play_boss_monologue():
 	boss_monologue.play()
+func stop_boss_monologue():
+	boss_monologue.stop()
 
 func fireball():
 	$AnimatedSprite2D.visible = true
@@ -96,9 +104,7 @@ func die():
 	tween.tween_property(self, "modulate:a", 0.0, 3.0)
 	await get_tree().create_timer(3.0).timeout
 	$Hitbox.disabled = true
-	
-	play_boss_death()
-	
+
 func movement_and_skill():
 	# If we are already moving/choosing, abort! This prevents the rapid-fire glitch.
 	if is_choosing_skill:
@@ -165,6 +171,7 @@ func _physics_process(delta: float) -> void:
 	$CanvasLayer/Label.visible = true
 	HP.visible = true
 	$Hitbox.disabled = false
+	
 	if vulnerable:
 		time_passed += delta * 2
 		var pulse = (sin(time_passed)/2 + 0.5)
