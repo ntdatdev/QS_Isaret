@@ -1,6 +1,8 @@
 extends Node2D
 @onready var accept_boss: AudioStreamPlayer = $Sound/AcceptBoss
 @onready var boss_monologue: AudioStreamPlayer = $Sound/BossMonologue
+@onready var background_music: AudioStreamPlayer = $Sound/BackgroundMusic
+@onready var boss_music: AudioStreamPlayer = $Sound/BossMusic
 
 @onready var player = $CharacterBody2D
 @onready var death_menu = $CanvasLayer/DeathMenu
@@ -100,7 +102,7 @@ func _ready():
 	# Animate the "modulate" property to be transparent	
 	# Arguments: (Property, Target Value, Duration in seconds)
 	tween.tween_property($CanvasLayer/ColorRect, "modulate", Color(0, 0, 0, 0), 1.0)
-	
+	background_music.play()
 
 func _on_player_died():
 	TV.hide_ui()
@@ -110,6 +112,8 @@ func _on_player_died():
 func enterBossRoom():
 	await get_tree().create_timer(2.0).timeout
 	$CLOSE.enable_node($CLOSE)
+	background_music.stop()
+	boss_music.play()
 	boss_monologue.play()
 	dialogue_message(wall_of_text_PHASE_1[i+1][0], wall_of_text_PHASE_1[i+1][1]) # BEGIN DIALOGUE
 

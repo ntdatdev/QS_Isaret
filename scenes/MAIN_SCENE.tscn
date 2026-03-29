@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://bp0vmoq4awgih" path="res://Assets/Sounds/Boss Monologue.mp3" id="3_ge3f4"]
 [ext_resource type="PackedScene" uid="uid://detq8tdq7818t" path="res://scenes/pause_menu.tscn" id="4_a72qe"]
 [ext_resource type="Texture2D" uid="uid://cphm1rq3mqerh" path="res://Assets/Tech_Mecha.png" id="4_q1mpu"]
+[ext_resource type="AudioStream" uid="uid://bkeikgqyjred1" path="res://Assets/Sounds/Background Music.ogg" id="4_w6h8o"]
 [ext_resource type="PackedScene" uid="uid://c2640f1al8fmo" path="res://scenes/death_menu.tscn" id="5_3jhfm"]
 [ext_resource type="Texture2D" uid="uid://dyw63rjaa1jj3" path="res://Assets/Animations/Boss_TV_Glitch.png" id="5_ih065"]
+[ext_resource type="AudioStream" uid="uid://dqdtubpj5phbd" path="res://Assets/Sounds/Boss Fight.ogg" id="5_kh7us"]
 [ext_resource type="Texture2D" uid="uid://dxuchws6mxkd0" path="res://Assets/Animations/Boss_TV_mad.png" id="6_q1mpu"]
 [ext_resource type="Texture2D" uid="uid://cyvwsauvyi17m" path="res://Assets/Dialogue_Box.png" id="6_wwgyg"]
 [ext_resource type="Texture2D" uid="uid://dnasmrq1wkayq" path="res://Assets/Animations/Boss_TV_warning.png" id="7_icepw"]
@@ -8247,6 +8249,14 @@ stream = ExtResource("2_0bhku")
 
 [node name="BossMonologue" type="AudioStreamPlayer" parent="Sound" unique_id=2061725523]
 stream = ExtResource("3_ge3f4")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sound" unique_id=1627138055]
+stream = ExtResource("4_w6h8o")
+volume_db = -18.0
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="Sound" unique_id=1030726252]
+stream = ExtResource("5_kh7us")
+volume_db = -13.0
 
 [node name="CharacterBody2D" parent="." unique_id=720078412 instance=ExtResource("1_awche")]
 z_index = 1

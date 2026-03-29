@@ -1,3 +1,2 @@
-res://scenes/Enemy/E1_Mecha.tscn
-res://scenes/Enemy/E0_BossTV.tscn
-res://scenes/PASSIVE_END.tscn
+res://scenes/MAIN_SCENE.tscn
+res://main_scene.gd
