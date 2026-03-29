@@ -87,6 +87,7 @@ var in_dialogue = false
 							[0, 0]] # END GAME. IDX 52 CREDITS - Destruction Ending
 							
 func _ready():
+	Engine.max_fps = 120
 	$CLOSE.disable_node($CLOSE)
 	$CanvasLayer/ColorRect.visible = true
 	player.died.connect(_on_player_died)

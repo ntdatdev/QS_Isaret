@@ -1,3 +1,2 @@
-res://scenes/MAIN_SCENE.tscn
-res://scenes/Enemy/e_1_mecha.gd
 res://main_scene.gd
+res://scenes/MAIN_SCENE.tscn
