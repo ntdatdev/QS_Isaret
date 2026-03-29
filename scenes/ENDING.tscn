@@ -74,3 +74,4 @@ horizontal_alignment = 1
 
 [node name="EndingMusic" type="AudioStreamPlayer2D" parent="." unique_id=393325791]
 stream = ExtResource("3_0t34t")
+volume_db = 24.0

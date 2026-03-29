@@ -176,8 +176,8 @@ func dialogue_progress():
 	elif i == 40: # Activate Mecha
 		FinalBoss.ON = true
 	elif i == 52: # Roll Screen Ending
+		
 		FinalBoss.die()
-		TV.play_boss_death()
 		GATE.end()
 		pass
 	
@@ -226,6 +226,7 @@ func _process(_delta):
 		progress = true
 	
 	if FinalBoss.current_hp <= 0 and FinalBoss.ON:
+		TV.play_boss_death()
 		FinalBoss.ON = false
 		await get_tree().create_timer(1.5).timeout
 		progress = true
